@@ -29,6 +29,22 @@
     </div>
   </div>
   <!-- /. about -->
+  <div class="voting">
+    <div class="container">
+      <div class="voting__wrapper">
+        <div class="voting__section">
+          <text-template></text-template>
+        </div>
+        <div class="voting__section">
+          <voting-card
+            v-for="vote in VotingItems"
+            v-bind:key="vote.id"
+            v-bind:item="vote"
+          ></voting-card>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 
@@ -36,6 +52,7 @@
 import ServiceCard from "@/components/ServiceCard";
 import TextTemplate from "@/components/TextTemplate";
 import ButtonTemplate from "@/components/ButtonTemplate";
+import VotingCard from "@/components/VotingCard";
 
 export default {
   name: "App",
@@ -43,6 +60,7 @@ export default {
     "service-card": ServiceCard,
     "text-template": TextTemplate,
     "button-template": ButtonTemplate,
+    "voting-card": VotingCard,
   },
   data() {
     return {
@@ -67,6 +85,26 @@ export default {
           title: "Доставка образцов товаров",
           subtitle:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut.",
+        },
+      ],
+      VotingItems: [
+        {
+          id: 1,
+          title: "Я работаю на произвостве",
+          subtitle:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        },
+        {
+          id: 2,
+          title: "Я поставляю товары",
+          subtitle:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        },
+        {
+          id: 3,
+          title: "Я помогаю подобрать оборудование",
+          subtitle:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
         },
       ],
     };
@@ -121,5 +159,11 @@ export default {
 .services__card {
   z-index: 2;
 }
-
+.voting {
+  margin-top: 120px;
+}
+.voting__wrapper {
+  display: flex;
+  flex-direction: column;
+}
 </style>
