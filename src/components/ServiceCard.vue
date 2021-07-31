@@ -2,18 +2,18 @@
   <div class="services__card">
     <img
       class="services__image"
-      v-bind:src="require(`@/assets/images/${item.image}`)"
+      v-bind:src="require(`@/assets/images/${card.image}`)"
       alt="icon"
     />
-    <h2 class="services__title">{{ item.title }}</h2>
-    <p class="services__subtitle">{{ item.subtitle }}</p>
+    <h2 class="services__title">{{ card.title }}</h2>
+    <p class="services__subtitle">{{ card.subtitle }}</p>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    item: {
+    card: {
       type: Object,
     },
   },

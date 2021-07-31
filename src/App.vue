@@ -5,7 +5,7 @@
         <div class="about__section">
           <div class="about__background"></div>
           <div class="about__info">
-            <text-template></text-template>
+            <text-template :element="FirstTemplate"></text-template>
             <button-template></button-template>
           </div>
           <img
@@ -20,7 +20,7 @@
               <service-card
                 v-for="card in ServicesItems"
                 v-bind:key="card.id"
-                v-bind:item="card"
+                v-bind:card="card"
               ></service-card>
             </div>
           </div>
@@ -33,14 +33,26 @@
     <div class="container">
       <div class="voting__wrapper">
         <div class="voting__section">
-          <text-template></text-template>
+          <text-template :element="SecondTemplate"></text-template>
         </div>
+
         <div class="voting__section">
-          <voting-card
-            v-for="vote in VotingItems"
-            v-bind:key="vote.id"
-            v-bind:item="vote"
-          ></voting-card>
+          <div class="voting__form">
+            <voting-card
+              v-for="vote in VotingItems"
+              v-bind:key="vote.id"
+              v-bind:vote="vote"
+            ></voting-card>
+          </div>
+
+          <div class="voting__button">
+            <div class="voting__counter">
+              <span class="title">Проголосовало:</span>
+              <span class="title"
+                ><span class="title-num">1107</span> пользователей</span
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -50,17 +62,17 @@
 
 <script>
 import ServiceCard from "@/components/ServiceCard";
+import VotingCard from "@/components/VotingCard";
 import TextTemplate from "@/components/TextTemplate";
 import ButtonTemplate from "@/components/ButtonTemplate";
-import VotingCard from "@/components/VotingCard";
 
 export default {
   name: "App",
   components: {
     "service-card": ServiceCard,
+    "voting-card": VotingCard,
     "text-template": TextTemplate,
     "button-template": ButtonTemplate,
-    "voting-card": VotingCard,
   },
   data() {
     return {
@@ -107,7 +119,30 @@ export default {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
         },
       ],
+      TextTemplate: [
+        {
+          id: 1,
+          title: "Поставщик Дальнего Востока",
+          subtitle:
+            "Наши клиенты получают полный спектр услуг по работе с Китаем. Начиная с подбора производителя заканчивая доставкой товара до двери. Настолько прозрачных сделок с Китаем вы еще не осуществляли.",
+        },
+        {
+          id: 2,
+          title: "В какой сфере вы работаете?",
+          subtitle:
+            "Мы проводим опрос среди пользователей сайта, чтобы предоставить Вам информацию соответствующую сфере Вашей деятельности.",
+        },
+      ],
     };
+  },
+  // /.DATA
+  computed: {
+    FirstTemplate() {
+      return this.TextTemplate.find((item) => item.id == 1);
+    },
+    SecondTemplate() {
+      return this.TextTemplate.find((item) => item.id == 2);
+    },
   },
 };
 </script>
@@ -165,5 +200,17 @@ export default {
 .voting__wrapper {
   display: flex;
   flex-direction: column;
+}
+.voting__section {
+  display: flex;
+}
+.voting__button {
+  margin: 0 auto;
+}
+.voting__counter {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #ffce50;
 }
 </style>

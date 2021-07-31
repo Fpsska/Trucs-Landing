@@ -1,9 +1,9 @@
 <template>
   <div class="voting__card">
     <label class="title"
-      >{{ item.title }}
+      >{{ vote.title }}
       <input class="voting__input" type="radio" name="activity" />
-      <p class="voting__subtitle subtitle">{{ item.subtitle }}</p>
+      <p class="voting__subtitle subtitle">{{ vote.subtitle }}</p>
     </label>
   </div>
 </template>
@@ -11,7 +11,7 @@
 <script>
 export default {
   props: {
-    item: {
+    vote: {
       type: Object,
     },
   },
@@ -25,8 +25,10 @@ export default {
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.12);
   background-color: #ffffff;
   border-radius: 10px;
+  border: 1px solid #ffffff;
   padding: 40px 125px 40px 95px;
   position: relative;
+  transition: .2s linear;
   &::before {
     content: url(../assets/images/triangle.svg);
     position: absolute;
@@ -34,10 +36,13 @@ export default {
     bottom: 0;
     left: auto;
     right: 0;
-    height: 61.5px;
+    height: 62px;
   }
   &:nth-child(2) {
     margin: 16px 0;
+  }
+  &:hover {
+    border: 1px solid #0B7572;
   }
 }
 .voting__text {
