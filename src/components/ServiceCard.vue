@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .services__card {
   padding: 0 80px;
   border-right: 1px solid #d7d7dd;

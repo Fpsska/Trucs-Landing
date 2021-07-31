@@ -18,7 +18,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
+
+
+<style lang="scss" scoped>
 .voting__card {
   max-width: 690px;
   display: flex;

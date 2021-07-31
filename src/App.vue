@@ -35,7 +35,6 @@
         <div class="voting__section">
           <text-template :element="SecondTemplate"></text-template>
         </div>
-
         <div class="voting__section">
           <div class="voting__form">
             <voting-card
@@ -44,7 +43,6 @@
               v-bind:vote="vote"
             ></voting-card>
           </div>
-
           <div class="voting__button">
             <div class="voting__counter">
               <span class="title">Проголосовало:</span>
@@ -57,6 +55,30 @@
       </div>
     </div>
   </div>
+  <!-- /. voting -->
+  <div class="advantage">
+    <div class="advantage__wrapper">
+      <img
+        class="advantage__background"
+        src="./assets/images/tractor.png"
+        alt="tractor"
+      />
+    </div>
+    <div class="advantage__section">
+      <div class="advantage__decoration">
+        <h2 class="advantage__title title-big">Почему с нами выгоднее?</h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="advantage__elements">
+        <advantage-card
+          v-for="skill in AdvantageItems"
+          v-bind:key="skill.id"
+          v-bind:skill="skill"
+        ></advantage-card>
+      </div>
+    </div>
+  </div>
 </template>
 
 
@@ -65,12 +87,14 @@ import ServiceCard from "@/components/ServiceCard";
 import VotingCard from "@/components/VotingCard";
 import TextTemplate from "@/components/TextTemplate";
 import ButtonTemplate from "@/components/ButtonTemplate";
+import AdvantageCard from "@/components/AdvantageCard";
 
 export default {
   name: "App",
   components: {
     "service-card": ServiceCard,
     "voting-card": VotingCard,
+    "advantage-card": AdvantageCard,
     "text-template": TextTemplate,
     "button-template": ButtonTemplate,
   },
@@ -131,6 +155,36 @@ export default {
           title: "В какой сфере вы работаете?",
           subtitle:
             "Мы проводим опрос среди пользователей сайта, чтобы предоставить Вам информацию соответствующую сфере Вашей деятельности.",
+        },
+      ],
+      AdvantageItems: [
+        {
+          id: 1,
+          title: "Lorem ipsum dolor sit amet",
+          subtitle:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
+          image: "lock.svg",
+        },
+        {
+          id: 2,
+          title: "Consectetur adipiscing elit",
+          subtitle:
+            "Quisquam reprehenderit illo nobis vel, aliquam consequuntur eos cum voluptatum sit maxime.",
+          image: "money.svg",
+        },
+        {
+          id: 3,
+          title: "Iusto laborum distinctio magnam",
+          subtitle:
+            "Sunt dolores fuga recusandae repellat, numquam quas nemo dolore aliquam.",
+          image: "document.svg",
+        },
+        {
+          id: 4,
+          title: "Dolores fuga recusandae repellat",
+          subtitle:
+            "Voluptatem tenetur laboriosam natus odio! Iusto laborum distinctio magnam debitis minus qui.",
+          image: "planet.svg",
         },
       ],
     };
@@ -195,7 +249,7 @@ export default {
   z-index: 2;
 }
 .voting {
-  margin-top: 120px;
+  margin: 120px 0 100px 0;
 }
 .voting__wrapper {
   display: flex;
@@ -212,5 +266,44 @@ export default {
   display: flex;
   flex-direction: column;
   border-bottom: 2px solid #ffce50;
+}
+.advantage {
+  position: relative;
+  margin-bottom: 200px;
+  max-height: 453px;
+}
+.advantage__wrapper {
+  text-align: end;
+  position: relative;
+  margin-bottom: 75px;
+}
+.advantage__section {
+  position: absolute;
+  width: 86%;
+  top: 0;
+  bottom: auto;
+  left: 0;
+  right: auto;
+}
+.advantage__decoration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 170px 0 0;
+  clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
+  background-color: #0b7572;
+  min-height: 453px;
+}
+.advantage__background {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.advantage__title {
+  color: #ffff;
+}
+.advantage__elements {
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
