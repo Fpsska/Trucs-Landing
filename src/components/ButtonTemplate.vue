@@ -1,25 +1,25 @@
 <template>
-  <button class="btn">{{ text }}</button>
+  <a class="btn" href="#">{{ button.text }}</a>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      text: "Узнать больше",
-    };
+  props: {
+    button: {
+      type: Object
+    }
   },
 };
 </script>
 
 <style lang="scss">
-    .btn {
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 24px;
-        color: #363738;
-        border-bottom: 2px solid #FFCE50;
-        background-color: transparent;
-        padding: 0 !important;
-    }
+.btn {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #363738;
+  background-color: transparent;
+  padding: 0 !important;
+  border-bottom: 3px solid #ffce50;
+}
 </style>

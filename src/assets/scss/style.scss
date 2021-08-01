@@ -3,11 +3,15 @@
 @import "/media";
 @import "/fonts";
 
+a {
+    color: #363738;
+}
+
 body {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     font-size: 16px;
     line-height: 1.4;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -30,3 +34,5 @@ body {
     line-height: 24px;
     margin: 40px 0;
 }
+
+
