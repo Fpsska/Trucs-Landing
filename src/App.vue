@@ -5,7 +5,10 @@
         <div class="about__section">
           <div class="about__background"></div>
           <div class="about__info">
-            <text-template v-bind:element="FirstTemplate"></text-template>
+            <text-template
+              data-mark="1"
+            v-bind:element="FirstTemplate"
+            ></text-template>
             <button-template
               v-bind:button="ButtonFirstTemplate"
             ></button-template>
@@ -92,7 +95,6 @@
         <div class="portfolio__section">
           <text-template v-bind:element="ThirdTemplate"></text-template>
         </div>
-
         <div class="portfolio__section">
           <div class="portfolio__slider slider">
             <carousel-slide
@@ -105,6 +107,47 @@
       </div>
     </div>
   </div>
+  <!-- /. portfolio -->
+  <div class="clients">
+    <div class="container">
+      <div class="clients__wrapper">
+        <div class="clients__section_1">
+          <h2 class="clients__title title-big">Привлеченные клиенты</h2>
+        </div>
+        <div class="clients__section_2">
+          <div class="clients__table board">
+            <div class="board__information">
+              <img class="board__logo" src="./assets/images/logo.svg" alt="#" />
+              <p class="board__requisites">
+                ООО "ПДВ" ИНН 7329023100 КПП 732901001 433405, Ульяновская обл.,
+                Территория Портовой особой Экономической зоны, Проезд Первых
+                Резидентов 3 Телефон: +7 8422 99 666 5 e-mail: info@pdv.ooo
+              </p>
+            </div>
+            <!--  -->
+            <table class="table">
+              <thead>
+                <tr class="table__row table__row-name">
+                  <td class="table__col-title title">Фото</td>
+                  <td class="table__col-title title">Название</td>
+                  <td class="table__col-title title">Производитель</td>
+                  <td class="table__col-title title">Контакт</td>
+                </tr>
+              </thead>
+              <tbody>
+                <table-item
+                  v-for="table in TableItems"
+                  v-bind:key="table.id"
+                  v-bind:table="table"
+                ></table-item>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /. clients -->
 </template>
 
 
@@ -115,6 +158,7 @@ import TextTemplate from "@/components/TextTemplate";
 import ButtonTemplate from "@/components/ButtonTemplate";
 import AdvantageCard from "@/components/AdvantageCard";
 import CarouselSlide from "@/components/CarouselSlide";
+import TableItem from "@/components/TableItem";
 // import Carousel from "vue-owl-carousel";
 
 export default {
@@ -126,6 +170,7 @@ export default {
     "text-template": TextTemplate,
     "button-template": ButtonTemplate,
     "carousel-slide": CarouselSlide,
+    "table-item": TableItem,
     // carousel: Carousel,
   },
   data() {
@@ -260,6 +305,44 @@ export default {
           text: "1107 пользователей",
         },
       ],
+      TableItems: [
+        {
+          id: 1,
+          image: "clients.png",
+          name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
+          price: "120 000",
+          producer: "Завод “Hlobalkhim”",
+          address: "г. Москва, проспект Кутузовский, д. 12 стр. 1 этаж, пом. 1",
+          user: "Коваль Иван Борисович",
+          profession: "Руководитель отдела поставок",
+          number: "+ 7 (495) 765 33 22",
+          rating: "rating-1.svg"
+        },
+        {
+          id: 2,
+          image: "clients.png",
+          name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
+          price: "50 000",
+          producer: "Даниловский строительный завод",
+          address: "Москва, Даниловская наб., д. 8 стр. 1 этаж, пом. 2",
+          user: "Лубен Валерий Вячеславович",
+          profession: "Руководитель отдела поставок",
+          number: "+ 7 (495) 765 33 22",
+          rating: "rating-1.svg"
+        },
+        {
+          id: 3,
+          image: "clients.png",
+          name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
+          price: "54 000",
+          producer: "Самарский строительный завод",
+          address: "Самара, Самарская наб., д. 2 стр. 5 этаж, пом. 6",
+          user: "Жмышенко Валерий Альбертович",
+          profession: "Руководитель отдела поставок",
+          number: "+ 7 (495) 765 33 22",
+          rating: "rating-1.svg"
+        },
+      ],
     };
   },
   // /.DATA
@@ -273,6 +356,7 @@ export default {
     ThirdTemplate() {
       return this.TextTemplate.find((item) => item.id == 3);
     },
+
     ButtonFirstTemplate() {
       return this.ButtonTemplate.find((item) => item.id == 1);
     },
@@ -394,10 +478,86 @@ export default {
   flex-wrap: wrap;
 }
 // /.advantage
+.portfolio {
+  margin-bottom: 215px;
+}
 .slider {
   display: flex;
   :last-child {
     margin-right: 0;
   }
+}
+// /.portfolio
+.clients {
+  margin-bottom: 200px;
+    position: relative;
+  &::before {
+    content: url(./assets/images/decoration.svg);
+    position: absolute;
+    top: 0;
+    left: 20%;
+  }
+}
+.clients__wrapper {
+  display: flex;
+  padding: 85px 0;
+  background-color: #0b7572;
+}
+.clients__section_1 {
+  width: 40%;
+  padding-left: 60px;
+}
+.clients__section_2 {
+  width: 60%;
+}
+.clients__title {
+  color: #fff;
+  padding: 10px;
+}
+.board {
+  width: 650px;
+  min-height: 745px;
+  border-radius: 8px;
+  padding: 32px;
+  background: #ffffff;
+}
+.board__information {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #d7d7dd;
+}
+.board__requisites {
+  width: 275px;
+  font-size: 11px;
+}
+.table {
+  width: 100%;
+  height: 100%;
+  margin-top: 32px;
+}
+.table__image {
+  width: 81px;
+  height: 74px;
+}
+.table__row {
+  display: grid;
+  align-items: flex-start;
+  grid-column-gap: 20px;
+  grid-template-columns: auto repeat(3, 1fr);
+  padding: 24px 16px;
+  // border-top: 1px solid #D7D7DD;
+}
+.table__column {
+  display: flex;
+  flex-direction: column;
+}
+.table__row-name {
+  padding: 15px 36px;
+  display: grid;
+  justify-items: center;
+}
+.table__col-title {
+  color: #fff !important;
 }
 </style>

@@ -35,8 +35,8 @@ export default {
       type: Object,
     },
     isActive: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
 };
 </script>
