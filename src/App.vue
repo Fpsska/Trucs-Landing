@@ -7,7 +7,7 @@
           <div class="about__info">
             <text-template
               data-mark="1"
-            v-bind:element="FirstTemplate"
+              v-bind:element="FirstTemplate"
             ></text-template>
             <button-template
               v-bind:button="ButtonFirstTemplate"
@@ -148,6 +148,19 @@
     </div>
   </div>
   <!-- /. clients -->
+  <div class="supply">
+    <div class="container">
+      <text-template v-bind:element="FourthTemplate"></text-template>
+      <div class="supply__wrapper">
+        <stage-item
+          v-for="supply in StageItems"
+          v-bind:key="supply.id"
+          v-bind:supply="supply"
+        ></stage-item>
+      </div>
+    </div>
+  </div>
+  <!-- /. supply -->
 </template>
 
 
@@ -159,6 +172,7 @@ import ButtonTemplate from "@/components/ButtonTemplate";
 import AdvantageCard from "@/components/AdvantageCard";
 import CarouselSlide from "@/components/CarouselSlide";
 import TableItem from "@/components/TableItem";
+import StageItem from "@/components/StageItem";
 // import Carousel from "vue-owl-carousel";
 
 export default {
@@ -171,11 +185,12 @@ export default {
     "button-template": ButtonTemplate,
     "carousel-slide": CarouselSlide,
     "table-item": TableItem,
+    "stage-item": StageItem,
     // carousel: Carousel,
   },
   data() {
     return {
-      isActive: false,
+      // isActive: false,
       ServicesItems: [
         {
           id: 1,
@@ -237,6 +252,10 @@ export default {
           title: "В какой сфере вы работаете?",
           subtitle:
             "Мы собрали информацию по грузам, которые мы уже доставили.У нас специальный подход к каждому виду товаров.",
+        },
+        {
+          id: 4,
+          title: "Этапы поставки",
         },
       ],
       AdvantageItems: [
@@ -316,7 +335,7 @@ export default {
           user: "Коваль Иван Борисович",
           profession: "Руководитель отдела поставок",
           number: "+ 7 (495) 765 33 22",
-          rating: "rating-1.svg"
+          rating: "rating-1.svg",
         },
         {
           id: 2,
@@ -328,7 +347,7 @@ export default {
           user: "Лубен Валерий Вячеславович",
           profession: "Руководитель отдела поставок",
           number: "+ 7 (495) 765 33 22",
-          rating: "rating-1.svg"
+          rating: "rating-1.svg",
         },
         {
           id: 3,
@@ -340,7 +359,33 @@ export default {
           user: "Жмышенко Валерий Альбертович",
           profession: "Руководитель отдела поставок",
           number: "+ 7 (495) 765 33 22",
-          rating: "rating-1.svg"
+          rating: "rating-1.svg",
+        },
+      ],
+      StageItems: [
+        {
+          id: 1,
+          number: "1",
+          image: "supply-1.png",
+          title: "Предложение от продавца",
+          subtitle:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in. ",
+        },
+        {
+          number: "2",
+          id: 2,
+          image: "supply-2.png",
+          title: "Доставка",
+          subtitle:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in. ",
+        },
+        {
+          number: "3",
+          id: 3,
+          image: "supply-3.png",
+          title: "Установка у клиента",
+          subtitle:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in. ",
         },
       ],
     };
@@ -355,6 +400,9 @@ export default {
     },
     ThirdTemplate() {
       return this.TextTemplate.find((item) => item.id == 3);
+    },
+    FourthTemplate() {
+      return this.TextTemplate.find((item) => item.id == 4);
     },
 
     ButtonFirstTemplate() {
@@ -490,7 +538,7 @@ export default {
 // /.portfolio
 .clients {
   margin-bottom: 200px;
-    position: relative;
+  position: relative;
   &::before {
     content: url(./assets/images/decoration.svg);
     position: absolute;
@@ -559,5 +607,10 @@ export default {
 }
 .table__col-title {
   color: #fff !important;
+}
+// /.clients
+.supply__wrapper {
+  display: flex;
+  flex-direction: column;
 }
 </style>

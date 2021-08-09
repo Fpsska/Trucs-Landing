@@ -15,12 +15,10 @@
           <a href="#"> {{ slide.title }}</a>
         </li>
         <li class="slider__subtitle subtitle">
-          <a href="#">{{ slide.subtitle }}</a>
+          <a class="slider__link" href="#">{{ slide.subtitle }}</a>
         </li>
         <li class="slider__price">
-          <a href="#" v-bind:class="{ btn: !isActive }"
-            >{{ slide.price }} руб</a
-          >
+          <a class="slider__link btn" href="#">{{ slide.price }} руб</a>
         </li>
       </ul>
     </div>
@@ -54,7 +52,7 @@ export default {
 }
 .slider__description {
   text-align: start;
-  padding: 24px 0 24px 32px;
+  padding: 24px 32px;
 }
 .subtitle {
   margin: 16px 0 32px 0;
