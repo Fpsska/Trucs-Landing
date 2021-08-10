@@ -161,6 +161,19 @@
     </div>
   </div>
   <!-- /. supply -->
+  <div class="partners">
+    <div class="container">
+      <text-template v-bind:element="FifthTemplate"></text-template>
+      <div class="partners__wrapper">
+        <partner-item
+          v-for="partner in PartnerItem"
+          v-bind:key="partner.id"
+          v-bind:partner="partner"
+        ></partner-item>
+      </div>
+    </div>
+  </div>
+  <!-- /. partners -->
 </template>
 
 
@@ -173,6 +186,7 @@ import AdvantageCard from "@/components/AdvantageCard";
 import CarouselSlide from "@/components/CarouselSlide";
 import TableItem from "@/components/TableItem";
 import StageItem from "@/components/StageItem";
+import PartnerItem from "@/components/PartnerItem";
 // import Carousel from "vue-owl-carousel";
 
 export default {
@@ -186,6 +200,7 @@ export default {
     "carousel-slide": CarouselSlide,
     "table-item": TableItem,
     "stage-item": StageItem,
+    "partner-item": PartnerItem,
     // carousel: Carousel,
   },
   data() {
@@ -256,6 +271,10 @@ export default {
         {
           id: 4,
           title: "Этапы поставки",
+        },
+        {
+          id: 5,
+          title: "Нам доверяют",
         },
       ],
       AdvantageItems: [
@@ -369,7 +388,7 @@ export default {
           image: "supply-1.png",
           title: "Предложение от продавца",
           subtitle:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in. ",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in.",
         },
         {
           number: "2",
@@ -377,7 +396,7 @@ export default {
           image: "supply-2.png",
           title: "Доставка",
           subtitle:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in. ",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in.",
         },
         {
           number: "3",
@@ -385,7 +404,57 @@ export default {
           image: "supply-3.png",
           title: "Установка у клиента",
           subtitle:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in. ",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in.",
+        },
+      ],
+      PartnerItem: [
+        {
+          id: 1,
+          image: "rosatom.svg",
+          title: "Росатом",
+          subtitle: "Корпорация атомной энергии",
+        },
+        {
+          id: 2,
+          image: "gasprom.svg",
+          title: "Газпром",
+          subtitle: "Энергетическая компания",
+        },
+        {
+          id: 3,
+          image: "rosneft.svg",
+          title: "Роснефть",
+          subtitle: "Нефтегазовая компания",
+        },
+        {
+          id: 4,
+          image: "roskosmos.svg",
+          title: "Роскосмос",
+          subtitle: "Корпорация в космической отрасли",
+        },
+        {
+          id: 5,
+          image: "lukoil.svg",
+          title: "Лукойл",
+          subtitle: "Нефтяная компания",
+        },
+        {
+          id: 6,
+          image: "rao.svg",
+          title: "Интер РАО",
+          subtitle: "Энергетическая компания",
+        },
+        {
+          id: 7,
+          image: "rostech.svg",
+          title: "Ростех",
+          subtitle: "Промышленная корпорация",
+        },
+        {
+          id: 8,
+          image: "vtb.svg",
+          title: "Банк ВТБ",
+          subtitle: "Коммерческий банк",
         },
       ],
     };
@@ -403,6 +472,9 @@ export default {
     },
     FourthTemplate() {
       return this.TextTemplate.find((item) => item.id == 4);
+    },
+    FifthTemplate() {
+      return this.TextTemplate.find((item) => item.id == 5);
     },
 
     ButtonFirstTemplate() {
@@ -609,8 +681,17 @@ export default {
   color: #fff !important;
 }
 // /.clients
+.supply {
+  margin-bottom: 120px;
+}
 .supply__wrapper {
   display: flex;
   flex-direction: column;
+}
+// /.supply
+.partners__wrapper {
+  margin-top: 90px;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
