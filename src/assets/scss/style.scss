@@ -7,6 +7,10 @@ a {
     color: #363738;
 }
 
+svg {
+    flex-shrink: 0;
+}
+
 thead {
     background-color: #0b7572;
 }

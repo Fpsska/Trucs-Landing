@@ -142,6 +142,7 @@
                 ></table-item>
               </tbody>
             </table>
+            <!--  -->
           </div>
         </div>
       </div>
@@ -166,7 +167,7 @@
       <text-template v-bind:element="FifthTemplate"></text-template>
       <div class="partners__wrapper">
         <partner-item
-          v-for="partner in PartnerItem"
+          v-for="partner in PartnerItems"
           v-bind:key="partner.id"
           v-bind:partner="partner"
         ></partner-item>
@@ -174,6 +175,19 @@
     </div>
   </div>
   <!-- /. partners -->
+  <div class="workers">
+    <div class="container">
+      <text-template v-bind:element="SixthTemplate"></text-template>
+      <div class="workers__wrapper">
+        <worker-card
+          v-for="worker in WorkerItems"
+          v-bind:key="worker.id"
+          v-bind:worker="worker"
+        ></worker-card>
+      </div>
+    </div>
+  </div>
+  <!-- /. workers -->
 </template>
 
 
@@ -187,6 +201,7 @@ import CarouselSlide from "@/components/CarouselSlide";
 import TableItem from "@/components/TableItem";
 import StageItem from "@/components/StageItem";
 import PartnerItem from "@/components/PartnerItem";
+import WorkerCard from "@/components/WorkerCard";
 // import Carousel from "vue-owl-carousel";
 
 export default {
@@ -201,6 +216,7 @@ export default {
     "table-item": TableItem,
     "stage-item": StageItem,
     "partner-item": PartnerItem,
+    "worker-card": WorkerCard,
     // carousel: Carousel,
   },
   data() {
@@ -275,6 +291,10 @@ export default {
         {
           id: 5,
           title: "Нам доверяют",
+        },
+        {
+          id: 6,
+          title: "Сотрудники компании",
         },
       ],
       AdvantageItems: [
@@ -407,7 +427,7 @@ export default {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in.",
         },
       ],
-      PartnerItem: [
+      PartnerItems: [
         {
           id: 1,
           image: "rosatom.svg",
@@ -457,6 +477,44 @@ export default {
           subtitle: "Коммерческий банк",
         },
       ],
+      WorkerItems: [
+        {
+          id: 1,
+          image: "worker-1.png",
+          title: "Антон Макаров",
+          subtitle: "Руководитель компании",
+        },
+        {
+          id: 2,
+          image: "worker-4.png",
+          title: "Елена Валерьева",
+          subtitle: "Главный бухгалтер",
+        },
+        {
+          id: 3,
+          image: "worker-2.png",
+          title: "Иван Аркадьев",
+          subtitle: "Менеджер по закупкам",
+        },
+        {
+          id: 4,
+          image: "worker-5.png",
+          title: "Борис Вавилов",
+          subtitle: "Бухгалтер",
+        },
+        {
+          id: 5,
+          image: "worker-3.png",
+          title: "Алина Кравец",
+          subtitle: "Сотрудник отдела кадров",
+        },
+        {
+          id: 6,
+          image: "worker-6.png",
+          title: "Виктор Козуб",
+          subtitle: "Менеджер по закупкам",
+        },
+      ],
     };
   },
   // /.DATA
@@ -475,6 +533,9 @@ export default {
     },
     FifthTemplate() {
       return this.TextTemplate.find((item) => item.id == 5);
+    },
+    SixthTemplate() {
+      return this.TextTemplate.find((item) => item.id == 6);
     },
 
     ButtonFirstTemplate() {
@@ -694,4 +755,14 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
+// /.partners
+.workers {
+  margin-bottom: 130px;
+}
+.workers__wrapper {
+  margin-top: 72px;
+  display: flex;
+  flex-wrap: wrap;
+}
+// /.workers
 </style>
