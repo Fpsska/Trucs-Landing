@@ -4,7 +4,7 @@
       <a href="#">
         <img
           class="slider__image"
-          v-bind:src="require(`@/assets/images/${slide.image}`)"
+          v-bind:src="require(`@/assets/images/${item.image}`)"
           alt="image"
         />
       </a>
@@ -12,28 +12,24 @@
     <div class="slider__section_btm">
       <ul class="slider__description">
         <li class="slider__title title">
-          <a href="#"> {{ slide.title }}</a>
+          <a href="#"> {{ item.title }}</a>
         </li>
         <li class="slider__subtitle subtitle">
-          <a class="slider__link" href="#">{{ slide.subtitle }}</a>
+          <a class="slider__link" href="#">{{ item.subtitle }}</a>
         </li>
         <li class="slider__price">
-          <a class="slider__link btn" href="#">{{ slide.price }} руб</a>
+          <a class="slider__link btn" href="#">{{ item.price }} руб</a>
         </li>
       </ul>
     </div>
   </div>
 </template>
 
-
 <script>
 export default {
   props: {
-    slide: {
+    item: {
       type: Object,
-    },
-    isActive: {
-      type: Boolean,
     },
   },
 };

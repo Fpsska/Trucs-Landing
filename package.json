@@ -23,6 +23,6 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "style-resources-loader": "^1.4.1",
-    "vue-owl-carousel": "^2.0.3"
+    "swiper": "^6.8.1"
   }
 }

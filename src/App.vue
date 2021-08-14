@@ -97,11 +97,7 @@
         </div>
         <div class="portfolio__section">
           <div class="portfolio__slider slider">
-            <carousel-slide
-              v-for="slide in SliderItems"
-              v-bind:key="slide.id"
-              v-bind:slide="slide"
-            ></carousel-slide>
+            <slider-list v-bind:items="SliderItems"></slider-list>
           </div>
         </div>
       </div>
@@ -190,19 +186,18 @@
   <!-- /. workers -->
 </template>
 
-
 <script>
 import ServiceCard from "@/components/ServiceCard";
 import VotingCard from "@/components/VotingCard";
 import TextTemplate from "@/components/TextTemplate";
 import ButtonTemplate from "@/components/ButtonTemplate";
 import AdvantageCard from "@/components/AdvantageCard";
-import CarouselSlide from "@/components/CarouselSlide";
 import TableItem from "@/components/TableItem";
 import StageItem from "@/components/StageItem";
 import PartnerItem from "@/components/PartnerItem";
 import WorkerCard from "@/components/WorkerCard";
-// import Carousel from "vue-owl-carousel";
+
+import SliderList from "@/components/SliderList";
 
 export default {
   name: "App",
@@ -212,16 +207,14 @@ export default {
     "advantage-card": AdvantageCard,
     "text-template": TextTemplate,
     "button-template": ButtonTemplate,
-    "carousel-slide": CarouselSlide,
     "table-item": TableItem,
     "stage-item": StageItem,
     "partner-item": PartnerItem,
     "worker-card": WorkerCard,
-    // carousel: Carousel,
+    "slider-list": SliderList,
   },
   data() {
     return {
-      // isActive: false,
       ServicesItems: [
         {
           id: 1,
@@ -660,10 +653,9 @@ export default {
 }
 // /.advantage
 .portfolio {
-  margin-bottom: 215px;
+  margin-bottom: 120px;
 }
 .slider {
-  display: flex;
   :last-child {
     margin-right: 0;
   }
@@ -727,7 +719,6 @@ export default {
   grid-column-gap: 20px;
   grid-template-columns: auto repeat(3, 1fr);
   padding: 24px 16px;
-  // border-top: 1px solid #D7D7DD;
 }
 .table__column {
   display: flex;
@@ -765,4 +756,5 @@ export default {
   flex-wrap: wrap;
 }
 // /.workers
+
 </style>
