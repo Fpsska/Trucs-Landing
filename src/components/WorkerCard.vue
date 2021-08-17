@@ -14,6 +14,7 @@
           <a class="worker__link" href="#">{{ worker.subtitle }}</a>
         </li>
       </ul>
+
       <ul class="worker__social social">
         <li class="social__item">
           <a
@@ -21,16 +22,12 @@
             href="https://www.instagram.com/"
             target="_black"
           >
-            <svg class="social__icon">
-              <use xlink:href="#instagram"></use>
-            </svg>
+            <icon-template v-bind:name="worker.name"></icon-template>
           </a>
         </li>
         <li class="social__item">
           <a class="social__link" href="https://vk.com/" target="_black">
-            <svg class="social__icon social__icon_vk">
-              <use xlink:href="#vk"></use>
-            </svg>
+            <icon-template v-bind:name="worker.name"></icon-template>
           </a>
         </li>
         <li class="social__item">
@@ -39,9 +36,7 @@
             href="https://ru.linkedin.com/"
             target="_black"
           >
-            <svg class="social__icon">
-              <use xlink:href="#linkedin"></use>
-            </svg>
+            <icon-template v-bind:name="worker.name"></icon-template>
           </a>
         </li>
       </ul>
@@ -50,11 +45,16 @@
 </template>
 
 <script>
+import IconTemplate from "@/components/IconTemplate";
+
 export default {
   props: {
     worker: {
       type: Object,
     },
+  },
+  components: {
+    "icon-template": IconTemplate,
   },
 };
 </script>
@@ -63,6 +63,7 @@ export default {
 .subtitle {
   margin: 16px 0 32px 0;
 }
+
 .worker__card {
   display: flex;
   width: 590px;
@@ -73,9 +74,6 @@ export default {
   margin-right: 30px;
   position: relative;
   margin-bottom: 24px;
-  &:nth-child(2n) {
-    margin-right: 0;
-  }
   &::before {
     content: "";
     position: absolute;
@@ -95,6 +93,7 @@ export default {
 .social {
   display: flex;
   align-items: center;
+  margin-top: 32px;
 }
 .social__item {
   margin-right: 20px;
@@ -102,10 +101,10 @@ export default {
 .social__icon {
   width: 22px;
   height: 22px;
-  transition: .25s linear;
+  transition: 0.25s linear;
   transform: scale(1);
   &:hover {
-      transform: scale(1.2);
+    transform: scale(1.2);
   }
 }
 .social__icon_vk {

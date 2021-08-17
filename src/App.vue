@@ -184,6 +184,34 @@
     </div>
   </div>
   <!-- /. workers -->
+  <div class="contacts">
+    <div class="container">
+      <text-template v-bind:element="SeventhTemplate"></text-template>
+      <div class="contacts__wrapper">
+        <div class="contacts__section_1">
+          <div class="contacts__social social">
+            <social-list
+              v-for="social in SocialItems"
+              v-bind:key="social.id"
+              v-bind:social="social"
+            ></social-list>
+          </div>
+        </div>
+        <div class="contacts__section_2 requisites">
+          <div class="requisites_wrapper">
+            <ul class="requisites__list">
+              <requisite-item
+                v-for="requisites in RequisiteItems"
+                v-bind:key="requisites.id"
+                v-bind:requisites="requisites"
+              ></requisite-item>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /. contacts -->
 </template>
 
 <script>
@@ -196,8 +224,9 @@ import TableItem from "@/components/TableItem";
 import StageItem from "@/components/StageItem";
 import PartnerItem from "@/components/PartnerItem";
 import WorkerCard from "@/components/WorkerCard";
-
 import SliderList from "@/components/SliderList";
+import SocialList from "@/components/SocialList";
+import RequisiteItem from "@/components/RequisiteItem";
 
 export default {
   name: "App",
@@ -212,6 +241,8 @@ export default {
     "partner-item": PartnerItem,
     "worker-card": WorkerCard,
     "slider-list": SliderList,
+    "social-list": SocialList,
+    "requisite-item": RequisiteItem,
   },
   data() {
     return {
@@ -288,6 +319,10 @@ export default {
         {
           id: 6,
           title: "Сотрудники компании",
+        },
+        {
+          id: 7,
+          title: "Наши контакты",
         },
       ],
       AdvantageItems: [
@@ -473,39 +508,98 @@ export default {
       WorkerItems: [
         {
           id: 1,
+          name: ["vk", "linkedin", "instagram"],
           image: "worker-1.png",
           title: "Антон Макаров",
           subtitle: "Руководитель компании",
         },
         {
           id: 2,
+          name: "vk",
           image: "worker-4.png",
           title: "Елена Валерьева",
           subtitle: "Главный бухгалтер",
         },
         {
           id: 3,
+          name: "linkedin",
           image: "worker-2.png",
           title: "Иван Аркадьев",
           subtitle: "Менеджер по закупкам",
         },
         {
           id: 4,
+          name: "instagram",
           image: "worker-5.png",
           title: "Борис Вавилов",
           subtitle: "Бухгалтер",
         },
         {
           id: 5,
+          name: "vk",
           image: "worker-3.png",
           title: "Алина Кравец",
           subtitle: "Сотрудник отдела кадров",
         },
         {
           id: 6,
+          name: "linkedin",
           image: "worker-6.png",
           title: "Виктор Козуб",
           subtitle: "Менеджер по закупкам",
+        },
+      ],
+      SocialItems: [
+        {
+          id: "1",
+          name: "phone",
+          title: "Телефон",
+          subtitle: "+7 8422 99 666 5",
+        },
+        {
+          id: "2",
+          name: "email",
+          title: "E-mail",
+          subtitle: "info@pdv.ooo",
+        },
+        {
+          id: "3",
+          name: "whatsapp",
+          title: "Whatsapp",
+          subtitle: "+86 158 666 95 616",
+        },
+        {
+          id: "4",
+          name: "skype",
+          title: "Skype",
+          subtitle: "sxy-bolts.cn",
+        },
+      ],
+      RequisiteItems: [
+        {
+          id: 1,
+          title: "Полное наименование:",
+          text: "ООО «Поставщик Дальнего Востока»",
+        },
+        {
+          id: 2,
+          title: "ИНН:",
+          text: "7329023100",
+        },
+        {
+          id: 3,
+          title: "КПП:",
+          text: "732901001",
+        },
+        {
+          id: 4,
+          title: "ОГРН:",
+          text: "1167325074762",
+        },
+        {
+          id: 5,
+          title: "Адрес:",
+          text: "Россия, Ульяновская обл, территория Портовой Особой Экономической Зоны, проезд Первых Резидентов дом 3",
         },
       ],
     };
@@ -529,6 +623,9 @@ export default {
     },
     SixthTemplate() {
       return this.TextTemplate.find((item) => item.id == 6);
+    },
+    SeventhTemplate() {
+      return this.TextTemplate.find((item) => item.id == 7);
     },
 
     ButtonFirstTemplate() {
@@ -754,7 +851,42 @@ export default {
   margin-top: 72px;
   display: flex;
   flex-wrap: wrap;
+  :nth-child(2n) {
+    margin-right: 0;
+  }
+  :nth-last-child(-n + 2),
+  :last-child {
+    margin-bottom: 0;
+  }
 }
 // /.workers
-
+.contacts {
+  margin-bottom: 140px;
+}
+.contacts__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 72px;
+}
+.contacts__section_1 {
+  width: 30%;
+}
+.contacts__section_2 {
+  width: 65%;
+}
+.social {
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+// /.contacts
+.requisites__list {
+  background: #f9f9fb;
+  border-radius: 5px;
+  padding: 40px 48px;
+  :last-child {
+    border-bottom: none;
+  }
+}
 </style>
