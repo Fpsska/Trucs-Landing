@@ -4,7 +4,7 @@
       <icon-template v-bind:name="social.name"></icon-template>
       <div class="social__information">
         <span class="social__text subtitle">{{ social.title }}</span>
-        <a class="social__text title" href="tel:+7 8422 99 666 5">
+        <a class="social__text title" v-bind:href="social.href">
           {{ social.subtitle }}
         </a>
       </div>
@@ -39,6 +39,11 @@ export default {
   width: 32px;
   height: 32px;
   margin-right: 36px;
+  transition: .25s linear;
+  transform: scale(1);
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 .social__information {
   display: flex;

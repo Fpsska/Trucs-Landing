@@ -41,6 +41,13 @@ export default {
     border-right: none;
   }
 }
+.partners__image {
+  transition: .25s linear;
+  transform: scale(1);
+  &:hover {
+    transform: scale(1.2);
+  }
+}
 .partners__content {
   display: flex;
   flex-direction: column;

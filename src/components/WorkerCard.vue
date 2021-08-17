@@ -22,12 +22,12 @@
             href="https://www.instagram.com/"
             target="_black"
           >
-            <icon-template v-bind:name="worker.name"></icon-template>
+            <icon-template v-bind:social="worker.social_1"></icon-template>
           </a>
         </li>
         <li class="social__item">
           <a class="social__link" href="https://vk.com/" target="_black">
-            <icon-template v-bind:name="worker.name"></icon-template>
+            <icon-template v-bind:social="worker.social_2"></icon-template>
           </a>
         </li>
         <li class="social__item">
@@ -36,7 +36,7 @@
             href="https://ru.linkedin.com/"
             target="_black"
           >
-            <icon-template v-bind:name="worker.name"></icon-template>
+            <icon-template v-bind:social="worker.social_3"></icon-template>
           </a>
         </li>
       </ul>
@@ -95,9 +95,9 @@ export default {
   align-items: center;
   margin-top: 32px;
 }
-.social__item {
-  margin-right: 20px;
-}
+// .social__item {
+//   margin-right: 20px;
+// }
 .social__icon {
   width: 22px;
   height: 22px;

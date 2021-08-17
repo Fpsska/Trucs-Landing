@@ -1,7 +1,7 @@
 <template>
   <svg
     class="social__icon"
-    v-if="name === 'instagram'"
+    v-if="social === 'instagram'"
     id="instagram"
     viewBox="0 0 22 22"
   >
@@ -15,7 +15,7 @@
   <!-- /.svg 1 -->
   <svg
     class="social__icon social__icon_vk"
-    v-else-if="name === 'vk'"
+    v-else-if="social === 'vk'"
     id="vk"
     viewBox="0 0 33 19"
   >
@@ -29,7 +29,7 @@
   <!-- /.svg 2 -->
   <svg
     class="social__icon"
-    v-else-if="name === 'linkedin'"
+    v-else-if="social === 'linkedin'"
     id="linkedin"
     viewBox="0 0 23 23"
   >
@@ -111,7 +111,7 @@
 
 <script>
 export default {
-  props: ["name"],
+  props: ["name", "social"],
 };
 </script>
 

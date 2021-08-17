@@ -63,6 +63,11 @@ export default {
   background: #fff;
   border-radius: 100%;
   box-shadow: 0px 0px 15px -10px rgba(34, 60, 80, 0.2) inset;
+  transition: .2s linear;
+  transform: scale(1);
+  &:hover {
+    transform: scale(1.1);
+  }
   &::before {
     content: "";
     position: absolute;
