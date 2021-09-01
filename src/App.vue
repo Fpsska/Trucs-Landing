@@ -241,6 +241,46 @@
     </div>
   </div>
   <!-- /. feedback -->
+  <div class="overview">
+    <div class="container">
+      <text-template v-bind:element="NinthTemplate"></text-template>
+      <div class="overview__wrapper">
+        <div class="overview__section">
+          <h2 class="overview__title title">Описание задачи</h2>
+          <p class="overview__description subtitle">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit
+            duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus
+            turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque
+            viverra mauris in. Pharetra convallis posuere morbi leo urna. Eget
+            sit amet tellus cras adipiscing.
+          </p>
+        </div>
+        <div class="overview__task task">
+          <h2 class="task__title title">Техническое задание</h2>
+          <div class="task__wrapper">
+            <task-template
+              v-for="task in TaskItems"
+              v-bind:key="task.id"
+              v-bind:task="task"
+            ></task-template>
+          </div>
+        </div>
+        <div class="overview__gallery gallary">
+          <h2 class="gallary__title title">Фотографии товара</h2>
+          <div class="gallary__images">
+            <gallery-card
+              v-for="card in GalleryItems"
+              v-bind:key="card.id"
+              v-bind:card="card"
+            ></gallery-card>
+          </div>
+        </div>
+        <button class="overview__button">Подтвердить информацию</button>
+      </div>
+    </div>
+  </div>
+  <!-- /.  -->
 </template>
 
 <script>
@@ -257,6 +297,8 @@ import SliderList from "@/components/SliderList";
 import SocialList from "@/components/SocialList";
 import RequisiteItem from "@/components/RequisiteItem";
 import InputFormTemplate from "@/components/InputFormTemplate";
+import GalleryCard from "@/components/GalleryCard";
+import TaskFileTemplate from "@/components/TaskFileTemplate";
 
 export default {
   name: "App",
@@ -274,6 +316,8 @@ export default {
     "social-list": SocialList,
     "requisite-item": RequisiteItem,
     "form-input": InputFormTemplate,
+    "gallery-card": GalleryCard,
+    "task-template": TaskFileTemplate,
   },
   data() {
     return {
@@ -315,7 +359,34 @@ export default {
         {
           id: 8,
           title: "Свяжитесь с нами",
-          titleFormStyle: true,
+        },
+        {
+          id: 9,
+          title: "Ваши данные ",
+        },
+      ],
+      GalleryItems: [
+        {
+          id: 1,
+          image: "good-1.png",
+          text: "IMG12344.png",
+        },
+        {
+          id: 2,
+          image: "good-2.png",
+          text: "IMG00344.png",
+        },
+        {
+          id: 3,
+          image: "good-3.png",
+          text: "IMG00544.png",
+        },
+      ],
+      TaskItems: [
+        {
+          id: 1,
+          icon: "document",
+          title: "ТЗ_задачи.doc",
         },
       ],
       ServicesItems: [
@@ -374,7 +445,7 @@ export default {
           title: "Consectetur adipiscing elit",
           subtitle:
             "Quisquam reprehenderit illo nobis vel, aliquam consequuntur eos cum voluptatum sit maxime.",
-          image: "document.svg",
+          image: "tablet.svg",
         },
         {
           id: 3,
@@ -707,6 +778,9 @@ export default {
     EightTemplate() {
       return this.TextTemplate.find((item) => item.id == 8);
     },
+    NinthTemplate() {
+      return this.TextTemplate.find((item) => item.id == 9);
+    },
 
     ButtonFirstTemplate() {
       return this.ButtonTemplate.find((item) => item.id == 1);
@@ -1017,4 +1091,62 @@ export default {
   margin-top: 65px;
 }
 // /.feedback
+.overview {
+  margin-bottom: 100px;
+}
+.overview__wrapper {
+  background: #f9f9fb;
+  border-radius: 5px;
+  padding: 56px 48px;
+}
+.overview__description.overview__description {
+  margin: 16px 0 0 0;
+}
+.overview__button {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  background: #0b7572;
+  border-radius: 4px;
+  padding: 20px;
+}
+.gallary {
+  margin-bottom: 80px;
+}
+.gallary__images {
+  display: flex;
+}
+.gallary__card {
+  display: flex;
+  flex-direction: column;
+  margin-right: 16px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.gallary__title {
+  margin-bottom: 24px;
+}
+.gallary__image {
+  width: 175px;
+  height: 135px;
+  margin-bottom: 16px;
+}
+.task__wrapper {
+  display: flex;
+  align-items: center;
+}
+.task {
+  margin: 40px 0 36px 0;
+}
+.task__title {
+  margin-bottom: 16px;
+}
+.task__icon {
+  margin-right: 16px;
+}
+.task__description {
+  text-decoration: underline;
+}
+// /.overview
 </style>
