@@ -30,4 +30,7 @@ export default {
   letter-spacing: 30%;
   font-size: 54px;
 }
+.title_form {
+  color: #fff !important;
+}
 </style>

@@ -212,6 +212,35 @@
     </div>
   </div>
   <!-- /. contacts -->
+  <div class="feedback">
+    <div class="container">
+      <div class="feedback__wrapper">
+        <div class="feedback__section_1">
+          <text-template v-bind:element="EightTemplate"></text-template>
+          <form class="form" name="feedback">
+            <div class="form__wrapper">
+              <form-input
+                v-for="input in FormInputItems"
+                v-bind:key="input.id"
+                v-bind:input="input"
+              ></form-input>
+              <button class="form__button" type="button">
+                Отправить заявку
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="feedback__section_2">
+          <img
+            class="feedback__image"
+            src="./assets/images/cranes.png"
+            alt="crans"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /. feedback -->
 </template>
 
 <script>
@@ -227,6 +256,7 @@ import WorkerCard from "@/components/WorkerCard";
 import SliderList from "@/components/SliderList";
 import SocialList from "@/components/SocialList";
 import RequisiteItem from "@/components/RequisiteItem";
+import InputFormTemplate from "@/components/InputFormTemplate";
 
 export default {
   name: "App",
@@ -243,9 +273,51 @@ export default {
     "slider-list": SliderList,
     "social-list": SocialList,
     "requisite-item": RequisiteItem,
+    "form-input": InputFormTemplate,
   },
   data() {
     return {
+      TextTemplate: [
+        {
+          id: 1,
+          title: "Поставщик Дальнего Востока",
+          subtitle:
+            "Наши клиенты получают полный спектр услуг по работе с Китаем. Начиная с подбора производителя заканчивая доставкой товара до двери. Настолько прозрачных сделок с Китаем вы еще не осуществляли.",
+        },
+        {
+          id: 2,
+          title: "Выполненные работы",
+          subtitle:
+            "Мы проводим опрос среди пользователей сайта, чтобы предоставить Вам информацию соответствующую сфере Вашей деятельности.",
+        },
+        {
+          id: 3,
+          title: "В какой сфере вы работаете?",
+          subtitle:
+            "Мы собрали информацию по грузам, которые мы уже доставили.У нас специальный подход к каждому виду товаров.",
+        },
+        {
+          id: 4,
+          title: "Этапы поставки",
+        },
+        {
+          id: 5,
+          title: "Нам доверяют",
+        },
+        {
+          id: 6,
+          title: "Сотрудники компании",
+        },
+        {
+          id: 7,
+          title: "Наши контакты",
+        },
+        {
+          id: 8,
+          title: "Свяжитесь с нами",
+          titleFormStyle: true,
+        },
+      ],
       ServicesItems: [
         {
           id: 1,
@@ -287,42 +359,6 @@ export default {
           title: "Я помогаю подобрать оборудование",
           subtitle:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-        },
-      ],
-      TextTemplate: [
-        {
-          id: 1,
-          title: "Поставщик Дальнего Востока",
-          subtitle:
-            "Наши клиенты получают полный спектр услуг по работе с Китаем. Начиная с подбора производителя заканчивая доставкой товара до двери. Настолько прозрачных сделок с Китаем вы еще не осуществляли.",
-        },
-        {
-          id: 2,
-          title: "Выполненные работы",
-          subtitle:
-            "Мы проводим опрос среди пользователей сайта, чтобы предоставить Вам информацию соответствующую сфере Вашей деятельности.",
-        },
-        {
-          id: 3,
-          title: "В какой сфере вы работаете?",
-          subtitle:
-            "Мы собрали информацию по грузам, которые мы уже доставили.У нас специальный подход к каждому виду товаров.",
-        },
-        {
-          id: 4,
-          title: "Этапы поставки",
-        },
-        {
-          id: 5,
-          title: "Нам доверяют",
-        },
-        {
-          id: 6,
-          title: "Сотрудники компании",
-        },
-        {
-          id: 7,
-          title: "Наши контакты",
         },
       ],
       AdvantageItems: [
@@ -508,8 +544,6 @@ export default {
       WorkerItems: [
         {
           id: 1,
-          // name: "vk",
-          // name: ["vk", "linkedin", "instagram"],
           social_1: "instagram",
           social_2: "vk",
           social_3: "linkedin",
@@ -519,7 +553,6 @@ export default {
         },
         {
           id: 2,
-          // name: "vk",
           social_1: "instagram",
           social_2: "vk",
           social_3: "linkedin",
@@ -529,7 +562,6 @@ export default {
         },
         {
           id: 3,
-          // name: "linkedin",
           social_1: "instagram",
           social_2: "vk",
           social_3: "linkedin",
@@ -622,6 +654,31 @@ export default {
           text: "Россия, Ульяновская обл, территория Портовой Особой Экономической Зоны, проезд Первых Резидентов дом 3",
         },
       ],
+      FormInputItems: [
+        {
+          id: 1,
+          type: "file",
+          title: "Прикрепите ТЗ",
+          inputImage: "add-file",
+          options: {
+            name: "fileUpload",
+            required: true,
+            multiple: true,
+          },
+        },
+        {
+          id: 2,
+          type: "file",
+          title: "Добавьте фото товара",
+          inputImage: "add-image",
+          options: {
+            name: "imageUpload",
+            accept: "image/*",
+            required: true,
+            multiple: false,
+          },
+        },
+      ],
     };
   },
   // /.DATA
@@ -646,6 +703,9 @@ export default {
     },
     SeventhTemplate() {
       return this.TextTemplate.find((item) => item.id == 7);
+    },
+    EightTemplate() {
+      return this.TextTemplate.find((item) => item.id == 8);
     },
 
     ButtonFirstTemplate() {
@@ -858,6 +918,9 @@ export default {
   flex-direction: column;
 }
 // /.supply
+.partners {
+  margin-bottom: 130px;
+}
 .partners__wrapper {
   margin-top: 90px;
   display: flex;
@@ -900,7 +963,6 @@ export default {
     margin-bottom: 0;
   }
 }
-// /.contacts
 .requisites__list {
   background: #f9f9fb;
   border-radius: 5px;
@@ -909,4 +971,50 @@ export default {
     border-bottom: none;
   }
 }
+// /.contacts
+.feedback {
+  margin-bottom: 130px;
+}
+.feedback__wrapper {
+  display: flex;
+  position: relative;
+}
+.feedback__section_1 {
+  width: 60%;
+  padding: 200px 56px;
+  background-color: #0b7572;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  z-index: 1;
+}
+.feedback__section_2 {
+  width: 45%;
+  display: flex;
+
+  position: absolute;
+  left: auto;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+.feedback__image {
+  width: 100%;
+}
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.form__button {
+  color: #0b7572;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 16px;
+  width: 205px;
+  font-weight: 600;
+  margin-top: 65px;
+}
+// /.feedback
 </style>
