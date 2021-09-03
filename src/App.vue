@@ -241,13 +241,13 @@
     </div>
   </div>
   <!-- /. feedback -->
-  <div class="overview">
+  <div class="data">
     <div class="container">
       <text-template v-bind:element="NinthTemplate"></text-template>
-      <div class="overview__wrapper">
-        <div class="overview__section">
-          <h2 class="overview__title title">Описание задачи</h2>
-          <p class="overview__description subtitle">
+      <div class="data__wrapper">
+        <div class="data__section">
+          <h2 class="data__title title">Описание задачи</h2>
+          <p class="data__description subtitle">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit
             duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus
@@ -256,7 +256,7 @@
             sit amet tellus cras adipiscing.
           </p>
         </div>
-        <div class="overview__task task">
+        <div class="data__task task">
           <h2 class="task__title title">Техническое задание</h2>
           <div class="task__wrapper">
             <task-template
@@ -266,7 +266,7 @@
             ></task-template>
           </div>
         </div>
-        <div class="overview__gallery gallary">
+        <div class="data__gallery gallary">
           <h2 class="gallary__title title">Фотографии товара</h2>
           <div class="gallary__images">
             <gallery-card
@@ -276,11 +276,12 @@
             ></gallery-card>
           </div>
         </div>
-        <button class="overview__button">Подтвердить информацию</button>
+        <button class="data__button">Подтвердить информацию</button>
       </div>
     </div>
   </div>
-  <!-- /.  -->
+  <!-- /.data  -->
+  
 </template>
 
 <script>
@@ -1091,18 +1092,18 @@ export default {
   margin-top: 65px;
 }
 // /.feedback
-.overview {
+.data {
   margin-bottom: 100px;
 }
-.overview__wrapper {
+.data__wrapper {
   background: #f9f9fb;
   border-radius: 5px;
   padding: 56px 48px;
 }
-.overview__description.overview__description {
+.data__description.data__description {
   margin: 16px 0 0 0;
 }
-.overview__button {
+.data__button {
   font-weight: 600;
   font-size: 16px;
   color: #fff;
