@@ -281,7 +281,34 @@
     </div>
   </div>
   <!-- /.data  -->
-  
+  <div class="overview">
+    <div class="container">
+      <div class="overview__wrapper">
+        <div class="overview__text">
+          <text-template v-bind:element="TenthTemplate"></text-template>
+          <p class="overview__description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit
+            duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus
+            turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque
+            viverra mauris in. Pharetra convallis posuere morbi leo urna. Eget
+            sit amet tellus cras adipiscing.
+          </p>
+        </div>
+        <div class="overview__video">
+          <iframe
+            class="overview__iframe"
+            src="https://www.youtube.com/embed/4UrCpchO1Os"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <div class="overview__mask"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -363,7 +390,11 @@ export default {
         },
         {
           id: 9,
-          title: "Ваши данные ",
+          title: "Ваши данные",
+        },
+        {
+          id: 10,
+          title: "Видео о нашей работе",
         },
       ],
       GalleryItems: [
@@ -782,6 +813,9 @@ export default {
     NinthTemplate() {
       return this.TextTemplate.find((item) => item.id == 9);
     },
+    TenthTemplate() {
+      return this.TextTemplate.find((item) => item.id == 10);
+    },
 
     ButtonFirstTemplate() {
       return this.ButtonTemplate.find((item) => item.id == 1);
@@ -1149,5 +1183,40 @@ export default {
 .task__description {
   text-decoration: underline;
 }
-// /.overview
+// /.data
+
+.overview {
+  margin-bottom: 130px;
+}
+.overview__text {
+  margin-bottom: 40px;
+}
+.overview__video {
+	position: relative;
+	padding: 0px 0px 56% 0px;
+  overflow: hidden;
+}
+.overview__iframe {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.overview__mask {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/images/truck-overview.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+  position: absolute;
+  transition: .45s linear;
+  top: 0;
+}
+.overview__video:hover .overview__mask {
+  top: -100%;
+}
 </style>
