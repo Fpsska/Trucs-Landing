@@ -1,33 +1,33 @@
 <template>
   <div class="about">
-    <div class="container">
-      <div class="about__wrapper">
-        <div class="about__section">
-          <div class="about__background"></div>
-          <div class="about__info">
-            <text-template
-              data-mark="1"
-              v-bind:element="FirstTemplate"
-            ></text-template>
-            <button-template
-              v-bind:button="ButtonFirstTemplate"
-            ></button-template>
-          </div>
-          <img
-            class="about__image"
-            src="./assets/images/trailer-pulling.png"
-            alt="trailer-pulling"
-          />
-        </div>
-        <div class="about__section">
-          <div class="services">
-            <div class="services__wrapper">
-              <service-card
-                v-for="card in ServicesItems"
-                v-bind:key="card.id"
-                v-bind:card="card"
-              ></service-card>
+    <!-- <div class="about__background"></div> -->
+    <div class="about__decoration">
+      <div class="container">
+        <div class="about__wrapper">
+          <div class="about__section_1">
+            <div class="about__info">
+              <text-template
+                data-mark="1"
+                v-bind:element="FirstTemplate"
+              ></text-template>
+              <button-template
+                v-bind:button="ButtonFirstTemplate"
+              ></button-template>
             </div>
+            <div class="about__image"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="about__section_2">
+        <div class="services">
+          <div class="services__wrapper">
+            <service-card
+              v-for="card in ServicesItems"
+              v-bind:key="card.id"
+              v-bind:card="card"
+            ></service-card>
           </div>
         </div>
       </div>
@@ -51,10 +51,6 @@
           <div class="voting__button">
             <div class="voting__counter">
               <span class="title">Проголосовало:</span>
-              <!-- <button-template
-                v-bind:class="{ 'title-num': !isActive }"
-                v-bind:button="ButtonSecondTemplate"
-              ></button-template> -->
               <span class="title"
                 ><span class="title-num">1107</span> пользователей</span
               >
@@ -67,15 +63,10 @@
   <!-- /. voting -->
   <div class="advantage">
     <div class="advantage__wrapper">
-      <img
-        class="advantage__background"
-        src="./assets/images/tractor.png"
-        alt="tractor"
-      />
-    </div>
-    <div class="advantage__section">
-      <div class="advantage__decoration">
-        <h2 class="advantage__title title-big">Почему с нами выгоднее?</h2>
+      <div class="advantage__section">
+        <div class="advantage__decoration">
+          <h2 class="advantage__title title-big">Почему с нами выгоднее?</h2>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -837,25 +828,38 @@ export default {
   flex-direction: column;
   padding-top: 110px;
 }
-.about__section {
+.about__section_1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.about__background {
-  width: 600px;
-  background-color: #0b7572;
-  min-height: 780px;
-  position: absolute;
-  top: 0;
-  bottom: auto;
-  left: auto;
-  right: 0;
+.about__section_2 {
+  position: relative;
+  z-index: 2;
+}
+.about__decoration {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    left: auto;
+    right: 0;
+    background-color: #0b7572;
+    height: 790px;
+    width: 600px;
+  }
 }
 .about__image {
   border-radius: 20px 0px 0px 20px;
   min-width: 635px;
+  min-height: 505px;
   z-index: 2;
+  background-image: url(./assets/images/trailer-pulling.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 // /.about
 .services {
@@ -898,36 +902,39 @@ export default {
 }
 // /.voting
 .advantage {
-  position: relative;
   margin-bottom: 120px;
 }
 .advantage__wrapper {
-  text-align: end;
   position: relative;
-  max-height: 453px;
+  text-align: end;
+  // padding: 225px 0;
+  // min-height: 453px;
+  height: 453px;
   margin-bottom: 75px;
+
+  background-image: url(./assets/images/tractor.png);
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
 }
 .advantage__section {
   position: absolute;
-  width: 86%;
+  width: 87%;
   top: 0;
   bottom: auto;
   left: 0;
   right: auto;
+  height: 100%;
 }
 .advantage__decoration {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%;
   padding: 0 170px 0 0;
   clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
   background-color: #0b7572;
-  min-height: 453px;
-}
-.advantage__background {
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 .advantage__title {
   color: #ffff;
@@ -936,6 +943,10 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  :nth-last-child(-n + 2),
+  :last-child {
+    margin-bottom: 0;
+  }
 }
 // /.advantage
 .portfolio {

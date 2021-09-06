@@ -2,9 +2,6 @@
     .advantage__section {
         width: 60%;
     }
-    .advantage__decoration {
-        padding: 0 170px 0 50px;
-    }
 }
 
 @media (max-width: 1350px) {
@@ -31,6 +28,10 @@
     .social__item.social__item {
         margin-bottom: 0;
     }
+    .advantage__decoration {
+        padding: 0 100px 0 50px;
+        text-align: start;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -51,5 +52,49 @@
     }
     .board {
         width: auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .voting__section {
+        flex-direction: column;
+    }
+    .voting__button {
+        order: -1;
+        margin-bottom: 50px;
+    }
+    .voting__card.voting__card {
+        max-width: 100%;
+    }
+    .advantage__card.advantage__card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 992px) {
+    .advantage__wrapper {
+        background-size: contain;
+        background-image: url(../images/tractor-tablet.png);
+    }
+    .about__section_1 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .about__image {
+        margin-top: 56px;
+        min-height: auto;
+        height: 320px;
+        width: 100%;
+        border-radius: 15px;
+        background-image: url(../images/trailer-pulling_tablet.png);
+    }
+    .about__decoration {
+        &::before {
+            height: 100%;
+            width: 180px;
+        }
+    }
+    .about {
+        position: static;
     }
 }
