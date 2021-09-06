@@ -38,8 +38,7 @@ export default {
 .social__icon {
   width: 32px;
   height: 32px;
-  margin-right: 36px;
-  transition: .25s linear;
+  transition: 0.25s linear;
   transform: scale(1);
   &:hover {
     transform: scale(1.2);
@@ -48,6 +47,7 @@ export default {
 .social__information {
   display: flex;
   flex-direction: column;
+  margin-left: 36px;
 }
 .subtitle {
   margin: 0;

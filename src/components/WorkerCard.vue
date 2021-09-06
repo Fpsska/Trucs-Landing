@@ -14,7 +14,6 @@
           <a class="worker__link" href="#">{{ worker.subtitle }}</a>
         </li>
       </ul>
-
       <ul class="worker__social social">
         <li class="social__item">
           <a
@@ -94,10 +93,13 @@ export default {
   display: flex;
   align-items: center;
   margin-top: 32px;
+  :last-child {
+    margin-right: 0;
+  }
 }
-// .social__item {
-//   margin-right: 20px;
-// }
+.social__item.social__item {
+    margin-right: 20px;
+}
 .social__icon {
   width: 22px;
   height: 22px;

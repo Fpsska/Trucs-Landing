@@ -6,3 +6,50 @@
         padding: 0 170px 0 50px;
     }
 }
+
+@media (max-width: 1350px) {
+    .container {
+        max-width: 1336px;
+        padding: 0 20px;
+    }
+    .supply .container {
+        padding: 0 40px;
+    }
+    .worker__card.worker__card {
+        width: 70%;
+        margin-right: 0;
+    }
+    .workers__wrapper {
+        justify-content: center;
+        :nth-last-child(-n + 2) {
+            margin-bottom: 24px;
+        }
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+    .social__item.social__item {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .clients__wrapper {
+        flex-direction: column;
+    }
+    .clients__section_1,
+    .clients__section_2 {
+        width: 100%;
+    }
+    .clients__section_1 {
+        padding: 0;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .clients__section_2 {
+        padding: 0 85px;
+    }
+    .board {
+        width: auto;
+    }
+}

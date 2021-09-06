@@ -34,12 +34,6 @@ export default {
   border-right: 1px solid #d7d7dd;
   width: 25%;
   margin-bottom: 95px;
-  :nth-child(4) {
-    border-right: none;
-  }
-  :nth-child(8) {
-    border-right: none;
-  }
   &:nth-child(n+5) {
     margin-bottom: 0;
   }

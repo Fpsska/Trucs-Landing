@@ -1034,6 +1034,10 @@ export default {
   margin-top: 90px;
   display: flex;
   flex-wrap: wrap;
+  :nth-child(4),
+  :last-child {
+    border-right: none;
+  }
 }
 // /.partners
 .workers {
@@ -1192,8 +1196,8 @@ export default {
   margin-bottom: 40px;
 }
 .overview__video {
-	position: relative;
-	padding: 0px 0px 56% 0px;
+  position: relative;
+  padding: 0px 0px 56% 0px;
   overflow: hidden;
 }
 .overview__iframe {
@@ -1207,13 +1211,14 @@ export default {
 .overview__mask {
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/images/truck-overview.png);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(./assets/images/truck-overview.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 1;
   position: absolute;
-  transition: .45s linear;
+  transition: 0.45s linear;
   top: 0;
 }
 .overview__video:hover .overview__mask {

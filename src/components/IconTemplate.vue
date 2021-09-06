@@ -199,7 +199,6 @@ export default {
 .social__icon {
   width: 28px;
   height: 28px;
-  margin-right: 36px;
 }
 .input__icon {
   width: 21px;
