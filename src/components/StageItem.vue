@@ -10,10 +10,9 @@
         <a class="supply__link btn" href="#">{{ supply.title }}</a>
       </li>
       <li class="supply__subtitle subtitle">
-        <a class="supply__link" href="#">{{ supply.subtitle }}</a>
+        <span class="supply__link">{{ supply.subtitle }}</span>
       </li>
     </ul>
-
     <div class="stage">
       <div class="stage__cicle">
         <span class="stage__number">{{ supply.number }}</span>
@@ -62,8 +61,8 @@ export default {
   height: 108px;
   background: #fff;
   border-radius: 100%;
-  box-shadow: 0px 0px 15px -10px rgba(34, 60, 80, 0.2) inset;
-  transition: .2s linear;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
+  transition: 0.2s linear;
   transform: scale(1);
   &:hover {
     transform: scale(1.1);

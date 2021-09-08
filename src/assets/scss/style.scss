@@ -3,6 +3,10 @@
 @import "/media";
 @import "/fonts";
 
+body {
+    word-break: break-word;
+}
+
 a {
     color: #363738;
 }
@@ -33,8 +37,9 @@ body {
 }
 
 .container {
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .title {
@@ -50,4 +55,3 @@ body {
     line-height: 24px;
     margin: 40px 0;
 }
-

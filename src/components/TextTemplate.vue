@@ -18,6 +18,7 @@ export default {
 <style lang="scss">
 .text {
   max-width: 520px;
+  padding: 5px 0;
 }
 .title-big {
   font-weight: 600;

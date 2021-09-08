@@ -5,10 +5,9 @@
 }
 
 @media (max-width: 1350px) {
-    .container {
-        max-width: 1336px;
-        padding: 0 20px;
-    }
+    // .container {
+    //     max-width: 1336px;
+    // }
     .supply .container {
         padding: 0 40px;
     }
@@ -69,13 +68,13 @@
     .advantage__card.advantage__card {
         width: 45%;
     }
+    .advantage__wrapper {
+        background-size: 100%;
+        background-image: url(../images/tractor-tablet.png);
+    }
 }
 
 @media (max-width: 992px) {
-    .advantage__wrapper {
-        background-size: contain;
-        background-image: url(../images/tractor-tablet.png);
-    }
     .about__section_1 {
         flex-direction: column;
         align-items: flex-start;
@@ -85,6 +84,7 @@
         min-height: auto;
         height: 320px;
         width: 100%;
+        min-width: auto;
         border-radius: 15px;
         background-image: url(../images/trailer-pulling_tablet.png);
     }
@@ -96,5 +96,159 @@
     }
     .about {
         position: static;
+    }
+}
+
+@media (max-width: 860px) {
+    .services__wrapper {
+        flex-direction: column;
+        :nth-child(2) {
+            margin: 24px 0;
+        }
+    }
+    .about__decoration {
+        background-color: #0b7572;
+        &::before {
+            display: none;
+        }
+    }
+    .services__card.services__card {
+        border-right: none;
+    }
+    .advantage__wrapper {
+        display: none;
+    }
+    .advantage__elements {
+        flex-direction: column;
+        :nth-child(3) {
+            margin-bottom: 65px;
+        }
+    }
+    .advantage__card.advantage__card {
+        width: 100%;
+    }
+    .partners__wrapper {
+        :nth-child(2n) {
+            border-right: none;
+        }
+        :nth-child(5),
+        :nth-child(6) {
+            margin-bottom: 95px !important;
+        }
+    }
+    .partners__card.partners__card {
+        width: 50%;
+    }
+    .worker__card.worker__card {
+        width: 80%;
+    }
+    .contacts__wrapper {
+        flex-direction: column;
+    }
+    .contacts__section_1 {
+        margin-bottom: 72px;
+    }
+    .contacts__section_1,
+    .contacts__section_2 {
+        width: 100%;
+    }
+    .social {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .social__list {
+        width: 50%;
+    }
+    .feedback__image {
+        display: none;
+    }
+    .feedback__section_1 {
+        width: 100%;
+    }
+    .clients__section_2 {
+        padding: 0 65px;
+    }
+    .clients__wrapper {
+        padding: 65px 0;
+    }
+    .supply__item {
+        flex-direction: column;
+    }
+    .supply__image.supply__image {
+        margin: 0 0 30px 0;
+    }
+    .supply__title {
+        text-align: center;
+    }
+    .stage {
+        top: 35%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about__image {
+        width: 100%;
+        min-width: auto;
+        background-size: 100%;
+        background-image: url(../images/trailer-pulling_mobile.png);
+    }
+    .board {
+        display: none;
+    }
+    .supply__image {
+        display: none;
+    }
+    .supply__item.supply__item {
+        padding: 24px 22px 32px 22px;
+    }
+    .partners__item {
+        text-align: center;
+    }
+    .social {
+        flex-direction: column;
+    }
+    .social__list {
+        width: 100%;
+    }
+    .requisites__item.requisites__item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .gallary__images {
+        flex-direction: column;
+    }
+    .worker__card.worker__card {
+        width: 100%;
+    }
+    .worker__image.worker__image {
+        width: 100px;
+        height: 100px;
+        margin-right: 18px;
+    }
+    .social {
+        flex-direction: row;
+    }
+    .swiper-slide.swiper-slide {
+        display: flex;
+        flex-direction: column;
+    }
+    .swiper-wrapper {
+        :nth-child(2) {
+            margin: 32px 0;
+        }
+    }
+    .voting__card.voting__card {
+        padding: 40px 55px 40px 70px;
+        &:before {
+            display: none;
+        }
+    }
+    .swiper-container {
+        padding-bottom: 40px;
+    }
+    .gallary {
+        :nth-child(2) {
+            margin-bottom: 20px;
+        }
     }
 }

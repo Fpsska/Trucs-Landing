@@ -1,8 +1,18 @@
 <template>
   <swiper
     @slideChange="onSlideChange"
-    :slides-per-view="1"
     :pagination="{ clickable: true }"
+    :breakpoints="{
+      '360': {
+        slidesPerView: 1,
+      },
+      '768': {
+        slidesPerView: 4,
+      },
+      '1024': {
+        slidesPerView: 1,
+      },
+    }"
   >
     <swiper-slide>
       <slider-item
@@ -61,6 +71,9 @@ export default {
       console.log(swiper);
     },
   },
+  // data() {
+  //   return console.log(this.items);
+  // },
 };
 </script>
 

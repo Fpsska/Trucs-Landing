@@ -29,8 +29,9 @@ export default {
 }
 .requisites__title {
   margin-right: 115px;
+  flex-shrink: 0;
 }
-// .requisites__text {
-//   text-align: start;
-// }
+.requisites__text {
+word-break: break-word;
+}
 </style>

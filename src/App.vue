@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    <!-- <div class="about__background"></div> -->
     <div class="about__decoration">
       <div class="container">
         <div class="about__wrapper">
@@ -189,7 +188,7 @@
           </div>
         </div>
         <div class="contacts__section_2 requisites">
-          <div class="requisites_wrapper">
+          <div class="requisites__wrapper">
             <ul class="requisites__list">
               <requisite-item
                 v-for="requisites in RequisiteItems"
@@ -510,6 +509,33 @@ export default {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
           price: "22 000",
         },
+
+        // {
+        // firstSlide: {
+        //   id: 1,
+        //   image: "portfolio-1.png",
+        //   title: "Станки и оборудование",
+        //   subtitle:
+        //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
+        //   price: "20 000",
+        // },
+        // secondSlide: {
+        //   id: 2,
+        //   image: "portfolio-2.png",
+        //   title: "Компоненты и запчасти",
+        //   subtitle:
+        //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
+        //   price: "18 000",
+        // },
+        // thirdSlide: {
+        //   id: 3,
+        //   image: "portfolio-3.png",
+        //   title: "Квартирные переезды",
+        //   subtitle:
+        //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
+        //   price: "22 000",
+        // },
+        // }
       ],
       ButtonTemplate: [
         {
@@ -828,6 +854,9 @@ export default {
   flex-direction: column;
   padding-top: 110px;
 }
+.about__info {
+  padding: 0 5px;
+}
 .about__section_1 {
   display: flex;
   justify-content: space-between;
@@ -961,6 +990,7 @@ export default {
 .clients {
   margin-bottom: 200px;
   position: relative;
+  overflow: hidden;
   &::before {
     content: url(./assets/images/decoration.svg);
     position: absolute;
@@ -1000,6 +1030,7 @@ export default {
 .board__requisites {
   width: 275px;
   font-size: 11px;
+  padding: 5px;
 }
 .table {
   width: 100%;
@@ -1077,10 +1108,13 @@ export default {
   margin-top: 72px;
 }
 .contacts__section_1 {
-  width: 30%;
+  max-width: 35%;
+  flex: 1;
+  margin-right: 20px;
 }
 .contacts__section_2 {
-  width: 65%;
+  max-width: 65%;
+  flex: 1;
 }
 .social {
   :last-child {
@@ -1115,14 +1149,12 @@ export default {
   z-index: 1;
 }
 .feedback__section_2 {
-  width: 45%;
   display: flex;
-
   position: absolute;
   left: auto;
   right: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 .feedback__image {
   width: 100%;

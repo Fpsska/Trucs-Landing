@@ -32,6 +32,9 @@ export default {
       type: Object,
     },
   },
+  // data() {
+  //   return console.log(this.item)
+  // },
 };
 </script>
 
