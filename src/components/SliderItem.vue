@@ -32,13 +32,13 @@ export default {
       type: Object,
     },
   },
-  // data() {
-  //   return console.log(this.item)
-  // },
 };
 </script>
 
 <style lang="scss" scoped>
+.subtitle {
+  margin: 16px 0 32px 0;
+}
 .slider__card {
   width: 395px;
   background: #ffffff;
@@ -53,7 +53,9 @@ export default {
   text-align: start;
   padding: 24px 32px;
 }
-.subtitle {
-  margin: 16px 0 32px 0;
+.slider__image {
+  object-fit: cover;
+  width: 100%;
+  height: 247px;
 }
 </style>

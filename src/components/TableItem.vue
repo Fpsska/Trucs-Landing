@@ -65,6 +65,7 @@ export default {
   line-height: 18.9px;
 }
 .table__rating {
+  object-fit: cover;
   height: 11px;
   width: 75px;
 }

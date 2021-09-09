@@ -1013,6 +1013,7 @@ export default {
 }
 .clients__section_2 {
   width: 60%;
+  z-index: 2;
 }
 .clients__title {
   color: #fff;
@@ -1132,6 +1133,7 @@ export default {
   padding: 40px 48px;
   :last-child {
     border-bottom: none;
+    padding-bottom: 0;
   }
 }
 // /.contacts
@@ -1222,21 +1224,8 @@ export default {
 .gallary__images {
   display: flex;
 }
-.gallary__card {
-  display: flex;
-  flex-direction: column;
-  margin-right: 16px;
-  &:last-child {
-    margin-right: 0;
-  }
-}
 .gallary__title {
   margin-bottom: 24px;
-}
-.gallary__image {
-  width: 175px;
-  height: 135px;
-  margin-bottom: 16px;
 }
 .task__wrapper {
   display: flex;

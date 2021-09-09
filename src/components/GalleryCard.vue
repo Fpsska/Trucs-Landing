@@ -20,7 +20,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.gallary__card {
+  display: flex;
+  flex-direction: column;
+  margin-right: 16px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
 .gallary__description {
   text-decoration: underline;
+}
+.gallary__image {
+  object-fit: cover;
+  width: 175px;
+  height: 135px;
+  margin-bottom: 16px;
 }
 </style>

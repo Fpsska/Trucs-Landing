@@ -29,6 +29,11 @@ export default {
   align-items: center;
   margin-bottom: 65px;
 }
+.advantage__image {
+  object-fit: cover;
+  width: 80px;
+  height: 80px;
+}
 .advantage__text {
   margin-left: 40px;
 }

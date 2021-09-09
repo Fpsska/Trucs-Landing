@@ -88,6 +88,9 @@ export default {
 }
 .worker__image {
   margin-right: 40px;
+  object-fit: cover;
+  width: 138px;
+  height: 138px;
 }
 .social {
   display: flex;
@@ -100,16 +103,11 @@ export default {
 .social__item.social__item {
     margin-right: 20px;
 }
-.social__icon {
-  width: 22px;
-  height: 22px;
+.social__item {
   transition: 0.25s linear;
   transform: scale(1);
   &:hover {
     transform: scale(1.2);
   }
-}
-.social__icon_vk {
-  width: 33px;
 }
 </style>

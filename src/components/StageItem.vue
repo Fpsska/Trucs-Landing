@@ -36,7 +36,6 @@ export default {
   display: flex;
   align-items: center;
   background: #fff;
-  // box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
   margin-bottom: 24px;
@@ -48,6 +47,7 @@ export default {
 .supply__image {
   margin-right: 56px;
   width: 330px;
+  min-height: 180px;
   object-fit: cover;
 }
 .stage {
@@ -66,7 +66,6 @@ export default {
   height: 108px;
   background: #fff;
   border-radius: 100%;
-  // box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15) inset;
   transition: 0.2s linear;
   transform: scale(1);

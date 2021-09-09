@@ -21,6 +21,7 @@ export default {
 }
 .requisites__item {
   display: flex;
+  text-align: justify;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #e9eaf2;

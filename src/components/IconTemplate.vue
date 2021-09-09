@@ -51,7 +51,7 @@
   <!-- /.svg 3 -->
 
   <svg
-    class="social__icon"
+    class="contacts__icon"
     v-else-if="name === 'phone'"
     id="phone"
     viewBox="0 0 24 32"
@@ -66,7 +66,7 @@
   <!-- /.svg 4 -->
 
   <svg
-    class="social__icon"
+    class="contacts__icon"
     v-else-if="name === 'email'"
     id="email"
     viewBox="0 0 28 18"
@@ -81,7 +81,7 @@
   <!-- /.svg 5 -->
 
   <svg
-    class="social__icon"
+    class="contacts__icon"
     v-else-if="name === 'whatsapp'"
     id="whatsapp"
     viewBox="0 0 28 28"
@@ -98,7 +98,7 @@
   <!-- /.svg 6 -->
 
   <svg
-    class="social__icon"
+    class="contacts__icon"
     v-else-if="name === 'skype'"
     id="skype"
     viewBox="0 0 28 28"
@@ -196,9 +196,16 @@ export default {
 
 
 <style lang="scss" scoped>
-.social__icon {
+.contacts__icon {
   width: 28px;
   height: 28px;
+}
+.social__icon {
+  width: 22px;
+  height: 22px;
+}
+.social__icon_vk {
+  width: 33px;
 }
 .input__icon {
   width: 21px;

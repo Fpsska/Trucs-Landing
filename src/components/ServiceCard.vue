@@ -41,5 +41,6 @@ export default {
 .services__image {
   width: 92px;
   height: 92px;
+  object-fit: cover;
 }
 </style>
