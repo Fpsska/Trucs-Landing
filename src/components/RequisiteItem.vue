@@ -31,7 +31,4 @@ export default {
   margin-right: 115px;
   flex-shrink: 0;
 }
-.requisites__text {
-word-break: break-word;
-}
 </style>

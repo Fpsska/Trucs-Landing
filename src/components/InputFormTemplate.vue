@@ -36,9 +36,7 @@ export default {
 .input {
   padding-bottom: 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  &:nth-child(1) {
-    margin-bottom: 25px;
-  }
+  margin-bottom: 25px;
 }
 .input__element {
   opacity: 0;

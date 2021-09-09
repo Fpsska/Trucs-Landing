@@ -40,6 +40,11 @@ export default {
 .title {
   font-size: 14px;
 }
+.table__image {
+  width: 80px;
+  height: 75px;
+  object-fit: cover;
+}
 .table__price {
   color: #363738;
   font-weight: 600;

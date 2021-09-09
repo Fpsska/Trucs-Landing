@@ -14,7 +14,7 @@
       </li>
     </ul>
     <div class="stage">
-      <div class="stage__cicle">
+      <div class="stage__circle">
         <span class="stage__number">{{ supply.number }}</span>
       </div>
     </div>
@@ -35,7 +35,8 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  background: #ffffff;
+  background: #fff;
+  // box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
   margin-bottom: 24px;
@@ -46,12 +47,16 @@ export default {
 }
 .supply__image {
   margin-right: 56px;
+  width: 330px;
+  object-fit: cover;
 }
 .stage {
   position: absolute;
   left: -4%;
+  top: 50%;
+  transform: translateY(-50%);
 }
-.stage__cicle {
+.stage__circle {
   position: relative;
   z-index: 10;
   display: flex;
@@ -61,7 +66,8 @@ export default {
   height: 108px;
   background: #fff;
   border-radius: 100%;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
+  // box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15) inset;
   transition: 0.2s linear;
   transform: scale(1);
   &:hover {

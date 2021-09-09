@@ -114,10 +114,10 @@
             <table class="table">
               <thead>
                 <tr class="table__row table__row-name">
-                  <td class="table__col-title title">Фото</td>
-                  <td class="table__col-title title">Название</td>
-                  <td class="table__col-title title">Производитель</td>
-                  <td class="table__col-title title">Контакт</td>
+                  <th class="table__col-title title">Фото</th>
+                  <th class="table__col-title title">Название</th>
+                  <th class="table__col-title title">Производитель</th>
+                  <th class="table__col-title title">Контакт</th>
                 </tr>
               </thead>
               <tbody>
@@ -135,10 +135,10 @@
     </div>
   </div>
   <!-- /. clients -->
-  <div class="supply">
+  <div class="stage">
     <div class="container">
       <text-template v-bind:element="FourthTemplate"></text-template>
-      <div class="supply__wrapper">
+      <div class="stage__wrapper">
         <stage-item
           v-for="supply in StageItems"
           v-bind:key="supply.id"
@@ -209,6 +209,10 @@
           <text-template v-bind:element="EightTemplate"></text-template>
           <form class="form" name="feedback">
             <div class="form__wrapper">
+              <textarea
+                class="form__description"
+                placeholder="Опишите задачу"
+              ></textarea>
               <form-input
                 v-for="input in FormInputItems"
                 v-bind:key="input.id"
@@ -1057,18 +1061,19 @@ export default {
   display: grid;
   justify-items: center;
 }
-.table__col-title {
-  color: #fff !important;
+.table__col-title.table__col-title {
+  color: #fff;
+  font-size: 16px;
 }
 // /.clients
-.supply {
+.stage {
   margin-bottom: 120px;
 }
-.supply__wrapper {
+.stage__wrapper {
   display: flex;
   flex-direction: column;
 }
-// /.supply
+// /.stage
 .partners {
   margin-bottom: 130px;
 }
@@ -1139,12 +1144,11 @@ export default {
 }
 .feedback__section_1 {
   width: 60%;
-  padding: 200px 56px;
+  padding: 100px 56px;
   background-color: #0b7572;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   position: relative;
   z-index: 1;
 }
@@ -1171,6 +1175,26 @@ export default {
   width: 205px;
   font-weight: 600;
   margin-top: 65px;
+}
+.form__description {
+  color: #fff;
+  padding: 10px 10px 15px 10px;
+  margin-bottom: 15px;
+  min-height: 223px;
+  line-height: 32px;
+  background-image: linear-gradient(
+    transparent,
+    transparent calc(44px),
+    rgba(255, 255, 255, 0.2) 0
+  );
+  background-size: 100% 45px;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  border: none;
+}
+.form__description::placeholder {
+  color: #fff;
 }
 // /.feedback
 .data {
