@@ -112,7 +112,7 @@
             </div>
             <!--  -->
             <table class="table">
-              <thead>
+              <thead class="table__header">
                 <tr class="table__row table__row-name">
                   <th class="table__col-title title">Фото</th>
                   <th class="table__col-title title">Название</th>
@@ -120,7 +120,7 @@
                   <th class="table__col-title title">Контакт</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="table__body">
                 <table-item
                   v-for="table in TableItems"
                   v-bind:key="table.id"
@@ -554,6 +554,7 @@ export default {
       TableItems: [
         {
           id: 1,
+          class: "table__row_1",
           image: "clients.png",
           name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
           price: "120 000",
@@ -566,6 +567,7 @@ export default {
         },
         {
           id: 2,
+          class: "table__row_2",
           image: "clients.png",
           name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
           price: "50 000",
@@ -578,6 +580,7 @@ export default {
         },
         {
           id: 3,
+          class: "table__row_3",
           image: "clients.png",
           name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
           price: "54 000",
@@ -1024,6 +1027,9 @@ export default {
   padding: 32px;
   background: #ffffff;
 }
+.board__logo {
+  margin-right: 20px;
+}
 .board__information {
   display: flex;
   justify-content: space-between;
@@ -1031,7 +1037,7 @@ export default {
   border-bottom: 1px solid #d7d7dd;
 }
 .board__requisites {
-  width: 275px;
+  max-width: 275px;
   font-size: 11px;
   padding: 5px;
 }

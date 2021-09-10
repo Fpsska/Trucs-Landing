@@ -133,6 +133,9 @@
             margin-bottom: 95px !important;
         }
     }
+    .partners__item {
+        text-align: center;
+    }
     .partners__card.partners__card {
         width: 50%;
     }
@@ -163,10 +166,13 @@
         width: 100%;
     }
     .clients__section_2 {
-        padding: 0 65px;
+        padding: 0 35px;
     }
     .clients__wrapper {
         padding: 65px 0;
+    }
+    .clients__title.clients__title {
+        font-size: 40px !important;
     }
     .stage__item {
         flex-direction: column;
@@ -181,6 +187,40 @@
         width: 52px;
         height: 52px;
     }
+    .table__row_1,
+    .table__row_2 {
+        display: none;
+    }
+    .table__row {
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+        :last-child {
+            border-bottom: none;
+        }
+    }
+    .table__column {
+        border-bottom: 1px solid #D7D7DD;
+        padding: 10px 0;
+    }
+    .table__row-name {
+        :not(:last-child) {
+            display: none;
+        }
+    }
+    .table__image.table__image {
+        width: 90px;
+        height: 90px;
+    }
+    .worker__card.worker__card {
+        width: 100%;
+        flex-direction: column;
+        padding: 32px 30px 32px 100px;
+    }
+    .worker__image.worker__image {
+        width: 100px;
+        height: 100px;
+        margin-right: 18px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -190,8 +230,14 @@
         background-size: 100%;
         background-image: url(../images/trailer-pulling_mobile.png);
     }
-    .board {
+    .board__requisites {
         display: none;
+    }
+    .board__information {
+        border-bottom: none;
+    }
+    .clients__section_2 {
+        padding: 0 35px;
     }
     .stage__image {
         display: none;
@@ -201,9 +247,6 @@
     }
     .stage__link {
         font-size: 15px;
-    }
-    .partners__item {
-        text-align: center;
     }
     .social {
         flex-direction: column;
@@ -217,16 +260,6 @@
     }
     .gallary__images {
         flex-direction: column;
-    }
-    .worker__card.worker__card {
-        width: 100%;
-        flex-direction: column;
-        padding: 32px 30px 32px 100px;
-    }
-    .worker__image.worker__image {
-        width: 100px;
-        height: 100px;
-        margin-right: 18px;
     }
     .social {
         flex-direction: row;

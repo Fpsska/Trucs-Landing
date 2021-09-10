@@ -1,5 +1,5 @@
 <template>
-  <tr class="table__row">
+  <tr class="table__row" v-bind:class="table.class">
     <td>
       <img
         class="table__image"
