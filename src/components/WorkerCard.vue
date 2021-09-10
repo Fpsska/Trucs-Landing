@@ -62,7 +62,6 @@ export default {
 .subtitle {
   margin: 16px 0 32px 0;
 }
-
 .worker__card {
   display: flex;
   width: 590px;

@@ -165,6 +165,9 @@
     .feedback__section_1 {
         width: 100%;
     }
+    .feedback__section_2 {
+        display: none;
+    }
     .clients__section_2 {
         padding: 0 35px;
     }
@@ -199,7 +202,7 @@
         }
     }
     .table__column {
-        border-bottom: 1px solid #D7D7DD;
+        border-bottom: 1px solid #d7d7dd;
         padding: 10px 0;
     }
     .table__row-name {
@@ -220,6 +223,12 @@
         width: 100px;
         height: 100px;
         margin-right: 18px;
+    }
+    .form {
+        overflow: hidden;
+    }
+    .feedback__section_1 {
+        padding: 100px 25px;
     }
 }
 
@@ -286,5 +295,33 @@
         :nth-child(2) {
             margin-bottom: 20px;
         }
+    }
+    .partners__card.partners__card {
+        width: 100%;
+    }
+
+    .portfolio__section {
+        display: none;
+    }
+    .stage__circle.stage__circle {
+        display: none;
+    }
+    .clients {
+        // display: none;
+        &::before {
+            display: none;
+        }
+    }
+    .partners {
+        // display: none;
+    }
+    .workers {
+        // display: none;
+    }
+    .contacts {
+        // display: none;
+    }
+    .feedback {
+        // display: none;
     }
 }

@@ -996,6 +996,7 @@ export default {
   margin-bottom: 200px;
   position: relative;
   overflow: hidden;
+  z-index: 2;
   &::before {
     content: url(./assets/images/decoration.svg);
     position: absolute;
@@ -1178,7 +1179,8 @@ export default {
   background-color: #fff;
   border-radius: 4px;
   padding: 16px;
-  width: 205px;
+  max-width: 205px;
+  width: 100%;
   font-weight: 600;
   margin-top: 65px;
 }
