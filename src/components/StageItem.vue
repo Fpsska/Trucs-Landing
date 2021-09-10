@@ -1,21 +1,21 @@
 <template>
-  <div class="supply__item">
+  <div class="stage__item">
     <img
-      class="supply__image"
-      v-bind:src="require(`@/assets/images/${supply.image}`)"
+      class="stage__image"
+      v-bind:src="require(`@/assets/images/${stage.image}`)"
       alt="stage"
     />
-    <ul class="supply__text">
-      <li class="supply__title title">
-        <a class="supply__link btn" href="#">{{ supply.title }}</a>
+    <ul class="stage__text">
+      <li class="stage__title title">
+        <a class="stage__link btn" href="#">{{ stage.title }}</a>
       </li>
-      <li class="supply__subtitle subtitle">
-        <span class="supply__link">{{ supply.subtitle }}</span>
+      <li class="stage__subtitle subtitle">
+        <span class="stage__link">{{ stage.subtitle }}</span>
       </li>
     </ul>
     <div class="stage">
       <div class="stage__circle">
-        <span class="stage__number">{{ supply.number }}</span>
+        <span class="stage__number">{{ stage.number }}</span>
       </div>
     </div>
   </div>
@@ -24,14 +24,14 @@
 <script>
 export default {
   props: {
-    supply: {
+    stage: {
       type: Object,
     },
   },
 };
 </script>
 <style  lang="scss" scoped>
-.supply__item {
+.stage__item {
   position: relative;
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@ export default {
     margin-bottom: 0;
   }
 }
-.supply__image {
+.stage__image {
   margin-right: 56px;
   width: 330px;
   min-height: 180px;
@@ -66,12 +66,7 @@ export default {
   height: 108px;
   background: #fff;
   border-radius: 100%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15) inset;
-  transition: 0.2s linear;
-  transform: scale(1);
-  &:hover {
-    transform: scale(1.1);
-  }
+  box-shadow: -10px 0px 5px 0px rgba(34, 60, 80, 0.2) inset;
   &::before {
     content: "";
     position: absolute;
@@ -85,7 +80,6 @@ export default {
     background: #0b7572;
   }
 }
-
 .stage__number {
   color: #fff;
   font-size: 38px;

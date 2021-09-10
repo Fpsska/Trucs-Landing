@@ -140,14 +140,14 @@
       <text-template v-bind:element="FourthTemplate"></text-template>
       <div class="stage__wrapper">
         <stage-item
-          v-for="supply in StageItems"
-          v-bind:key="supply.id"
-          v-bind:supply="supply"
+          v-for="stage in StageItems"
+          v-bind:key="stage.id"
+          v-bind:stage="stage"
         ></stage-item>
       </div>
     </div>
   </div>
-  <!-- /. supply -->
+  <!-- /. stage -->
   <div class="partners">
     <div class="container">
       <text-template v-bind:element="FifthTemplate"></text-template>
@@ -593,7 +593,7 @@ export default {
         {
           id: 1,
           number: "1",
-          image: "supply-1.png",
+          image: "stage-1.png",
           title: "Предложение от продавца",
           subtitle:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in.",
@@ -601,7 +601,7 @@ export default {
         {
           number: "2",
           id: 2,
-          image: "supply-2.png",
+          image: "stage-2.png",
           title: "Доставка",
           subtitle:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in.",
@@ -609,7 +609,7 @@ export default {
         {
           number: "3",
           id: 3,
-          image: "supply-3.png",
+          image: "stage-3.png",
           title: "Установка у клиента",
           subtitle:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque viverra mauris in.",
@@ -940,8 +940,6 @@ export default {
 .advantage__wrapper {
   position: relative;
   text-align: end;
-  // padding: 225px 0;
-  // min-height: 453px;
   height: 453px;
   margin-bottom: 75px;
 
