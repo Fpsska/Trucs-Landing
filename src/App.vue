@@ -6,6 +6,7 @@
           <div class="about__section_1">
             <div class="about__info">
               <text-template
+                styles="title-big"
                 data-mark="1"
                 v-bind:element="FirstTemplate"
               ></text-template>
@@ -37,7 +38,10 @@
     <div class="container">
       <div class="voting__wrapper">
         <div class="voting__section">
-          <text-template v-bind:element="SecondTemplate"></text-template>
+          <text-template
+            v-bind:element="SecondTemplate"
+            styles="title-big"
+          ></text-template>
         </div>
         <div class="voting__section">
           <div class="voting__form">
@@ -48,12 +52,12 @@
             ></voting-card>
           </div>
           <div class="voting__button">
-            <div class="voting__counter">
-              <span class="title">Проголосовало:</span>
-              <span class="title"
-                ><span class="title-num">1107</span> пользователей</span
-              >
-            </div>
+            <ul class="voting__counter">
+              <li class="title">Проголосовало:</li>
+              <li class="title">
+                <span class="title-num">1107</span>пользователей
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -83,7 +87,10 @@
     <div class="container">
       <div class="portfolio__wrapper">
         <div class="portfolio__section">
-          <text-template v-bind:element="ThirdTemplate"></text-template>
+          <text-template
+            v-bind:element="ThirdTemplate"
+            styles="title-big"
+          ></text-template>
         </div>
         <div class="portfolio__section">
           <div class="portfolio__slider slider">
@@ -137,7 +144,10 @@
   <!-- /. clients -->
   <section class="stage">
     <div class="container">
-      <text-template v-bind:element="FourthTemplate"></text-template>
+      <text-template
+        v-bind:element="FourthTemplate"
+        styles="title-big"
+      ></text-template>
       <div class="stage__wrapper">
         <stage-item
           v-for="stage in StageItems"
@@ -150,7 +160,10 @@
   <!-- /. stage -->
   <section class="partners">
     <div class="container">
-      <text-template v-bind:element="FifthTemplate"></text-template>
+      <text-template
+        v-bind:element="FifthTemplate"
+        styles="title-big"
+      ></text-template>
       <div class="partners__wrapper">
         <partner-item
           v-for="partner in PartnerItems"
@@ -163,7 +176,10 @@
   <!-- /. partners -->
   <section class="workers">
     <div class="container">
-      <text-template v-bind:element="SixthTemplate"></text-template>
+      <text-template
+        v-bind:element="SixthTemplate"
+        styles="title-big"
+      ></text-template>
       <div class="workers__wrapper">
         <worker-card
           v-for="worker in WorkerItems"
@@ -176,7 +192,10 @@
   <!-- /. workers -->
   <section class="contacts">
     <div class="container">
-      <text-template v-bind:element="SeventhTemplate"></text-template>
+      <text-template
+        v-bind:element="SeventhTemplate"
+        styles="title-big"
+      ></text-template>
       <div class="contacts__wrapper">
         <div class="contacts__section_1">
           <div class="contacts__social social">
@@ -206,19 +225,23 @@
     <div class="container">
       <div class="feedback__wrapper">
         <div class="feedback__section_1">
-          <text-template v-bind:element="EightTemplate"></text-template>
-          <form class="form" name="feedback">
+          <text-template
+            v-bind:element="EightTemplate"
+            styles="title-big title_form"
+          ></text-template>
+          <form class="form" name="feedback" v-on:submit.prevent="submitForm">
             <div class="form__wrapper">
               <textarea
                 class="form__description"
                 placeholder="Опишите задачу"
+                v-model="taskDescription"
               ></textarea>
               <form-input
                 v-for="input in FormInputItems"
                 v-bind:key="input.id"
                 v-bind:input="input"
               ></form-input>
-              <button class="form__button" type="button">
+              <button class="form__button" type="submit">
                 Отправить заявку
               </button>
             </div>
@@ -237,17 +260,15 @@
   <!-- /. feedback -->
   <section class="data">
     <div class="container">
-      <text-template v-bind:element="NinthTemplate"></text-template>
+      <text-template
+        v-bind:element="NinthTemplate"
+        styles="title-big"
+      ></text-template>
       <div class="data__wrapper">
         <div class="data__section">
           <h2 class="data__title title">Описание задачи</h2>
           <p class="data__description subtitle">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit
-            duis tristique sollicitudin nibh sit amet. Ultrices eros in cursus
-            turpis massa tincidunt. Venenatis urna cursus eget nunc scelerisque
-            viverra mauris in. Pharetra convallis posuere morbi leo urna. Eget
-            sit amet tellus cras adipiscing.
+            {{ this.taskDescription }}
           </p>
         </div>
         <div class="data__task task">
@@ -279,7 +300,10 @@
     <div class="container">
       <div class="overview__wrapper">
         <div class="overview__text">
-          <text-template v-bind:element="TenthTemplate"></text-template>
+          <text-template
+            v-bind:element="TenthTemplate"
+            styles="title-big"
+          ></text-template>
           <p class="overview__description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit
@@ -343,6 +367,7 @@ export default {
   },
   data() {
     return {
+      taskDescription: "",
       TextTemplate: [
         {
           id: 1,
@@ -352,13 +377,13 @@ export default {
         },
         {
           id: 2,
-          title: "Выполненные работы",
+          title: "В какой сфере вы работаете?",
           subtitle:
             "Мы проводим опрос среди пользователей сайта, чтобы предоставить Вам информацию соответствующую сфере Вашей деятельности.",
         },
         {
           id: 3,
-          title: "В какой сфере вы работаете?",
+          title: "Выполненные работы",
           subtitle:
             "Мы собрали информацию по грузам, которые мы уже доставили.У нас специальный подход к каждому виду товаров.",
         },
@@ -789,7 +814,7 @@ export default {
           inputImage: "add-file",
           options: {
             name: "fileUpload",
-            required: true,
+            // required: true,
             multiple: true,
           },
         },
@@ -801,14 +826,20 @@ export default {
           options: {
             name: "imageUpload",
             accept: "image/*",
-            required: true,
+            // required: true,
             multiple: false,
           },
         },
       ],
     };
   },
-  // /.DATA
+  methods: {
+    submitForm() {
+      alert("Form Submit!");
+      // console.log("text:", this.taskDescription);
+    },
+  },
+  // /.METHODS
   computed: {
     FirstTemplate() {
       return this.TextTemplate.find((item) => item.id == 1);
@@ -1188,10 +1219,10 @@ export default {
   padding: 10px 10px 15px 10px;
   margin-bottom: 15px;
   min-height: 223px;
-  line-height: 32px;
+  line-height: 45px;
   background-image: linear-gradient(
     transparent,
-    transparent calc(44px),
+    transparent 44px,
     rgba(255, 255, 255, 0.2) 0
   );
   background-size: 100% 45px;
@@ -1202,6 +1233,18 @@ export default {
 }
 .form__description::placeholder {
   color: #fff;
+}
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 12px;
+  border-radius: 5px;
+  background-color: #ccc;
+}
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(11, 117, 114, 0.788);
+  border-radius: 5px;
 }
 // /.feedback
 .data {
@@ -1228,8 +1271,8 @@ export default {
 }
 .gallary__images {
   display: flex;
-  &:not(:last-child) {
-    margin-right: 16px;
+  :last-child {
+    margin-right: 0;
   }
 }
 .gallary__title {

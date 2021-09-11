@@ -18,6 +18,20 @@
 import IconTemplate from "@/components/IconTemplate";
 
 export default {
+  data() {
+    return {
+      taskFile: "",
+      taskIMG:"",
+    };
+  },
+  // /. DATA
+  // methods: {
+  //   submitForm() {
+  //     alert("Form Submit!");
+  //     console.log(this.description);
+  //   },
+  // },
+  // /.METHODS
   props: {
     input: {
       type: Object,

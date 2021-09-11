@@ -13,6 +13,11 @@ export default {
       type: Object,
     },
   },
+  data() {
+    return {
+      taskFile: "",
+    };
+  },
   components: {
     "icon-template": IconTemplate,
   },

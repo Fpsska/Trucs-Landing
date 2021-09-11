@@ -23,6 +23,7 @@ export default {
 .gallary__card {
   display: flex;
   flex-direction: column;
+  margin-right: 16px;
 }
 .gallary__description {
   text-decoration: underline;

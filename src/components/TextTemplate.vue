@@ -1,6 +1,6 @@
 <template>
   <article class="text">
-    <h1 class="title title-big">{{ element.title }}</h1>
+    <h1 class="title" v-bind:class="styles">{{ element.title }}</h1>
     <p class="subtitle">{{ element.subtitle }}</p>
   </article>
 </template>
@@ -10,6 +10,13 @@ export default {
   props: {
     element: {
       type: Object,
+    },
+    styles: {
+      type: String,
+      default: "",
+      validator(value) {
+        return ["", "title-big", "title-num", "title_form"].includes(value);
+      },
     },
   },
 };
