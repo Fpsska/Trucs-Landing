@@ -23,10 +23,6 @@ export default {
 .gallary__card {
   display: flex;
   flex-direction: column;
-  margin-right: 16px;
-  &:last-child {
-    margin-right: 0;
-  }
 }
 .gallary__description {
   text-decoration: underline;

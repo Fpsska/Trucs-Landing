@@ -64,14 +64,12 @@ export default {
 }
 .worker__card {
   display: flex;
-  width: 590px;
+  flex: 0 1 48.5%;
   background: #ffffff;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   padding: 32px 83px;
-  margin-right: 30px;
   position: relative;
-  margin-bottom: 24px;
   &::before {
     content: "";
     position: absolute;
@@ -85,6 +83,14 @@ export default {
     border-radius: 10px 0 0 10px;
   }
 }
+.worker__content {
+  & > * {
+    margin-bottom: 32px !important;
+  }
+  :last-child {
+    margin-bottom: 0 !important;
+  }
+}
 .worker__image {
   margin-right: 40px;
   object-fit: cover;
@@ -94,13 +100,12 @@ export default {
 .social {
   display: flex;
   align-items: center;
-  margin-top: 32px;
-  :last-child {
-    margin-right: 0;
-  }
 }
 .social__item.social__item {
-    margin-right: 20px;
+  margin-right: 20px;
+  &:last-child {
+    margin-right: 0;
+  }
 }
 .social__item {
   transition: 0.25s linear;

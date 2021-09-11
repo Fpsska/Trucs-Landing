@@ -28,8 +28,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.subtitle {
+  margin: 0;
+}
 .social__list {
-  margin-bottom: 44px;
+  &:not(:last-child) {
+    margin-bottom: 44px;
+  }
 }
 .social__item {
   display: flex;
@@ -48,8 +53,5 @@ export default {
   display: flex;
   flex-direction: column;
   margin-left: 36px;
-}
-.subtitle {
-  margin: 0;
 }
 </style>

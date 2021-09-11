@@ -40,7 +40,7 @@ export default {
   margin: 16px 0 32px 0;
 }
 .slider__card {
-  max-width: 395px;
+  flex: 0 1 33.333%;
   background: #ffffff;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12);
   border-radius: 10px;

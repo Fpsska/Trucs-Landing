@@ -22,6 +22,9 @@ export default {
 
 <style lang="scss" scoped>
 .services__card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 33.333%;
   padding: 0 80px;
   border-right: 1px solid #d7d7dd;
 }

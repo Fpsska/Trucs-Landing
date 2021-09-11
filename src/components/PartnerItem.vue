@@ -31,8 +31,8 @@ export default {
 
 <style lang="scss" scoped>
 .partners__card {
+  flex: 0 1 25%;
   border-right: 1px solid #d7d7dd;
-  width: 25%;
   margin-bottom: 95px;
   &:nth-child(n+5) {
     margin-bottom: 0;

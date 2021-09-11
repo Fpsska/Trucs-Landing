@@ -24,8 +24,8 @@ export default {
 
 <style lang="scss" scoped>
 .advantage__card {
-  width: 39%;
   display: flex;
+  flex: 0 1 35%;
   align-items: center;
   margin-bottom: 65px;
 }

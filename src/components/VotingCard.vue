@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 .voting__card {
-  max-width: 690px;
+  flex: 0 1 54%;
   display: flex;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.12);
   background-color: #ffffff;

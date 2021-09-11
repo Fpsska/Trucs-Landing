@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <section class="about">
     <div class="about__decoration">
       <div class="container">
         <div class="about__wrapper">
@@ -31,9 +31,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /. about -->
-  <div class="voting">
+  <section class="voting">
     <div class="container">
       <div class="voting__wrapper">
         <div class="voting__section">
@@ -58,9 +58,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /. voting -->
-  <div class="advantage">
+  <section class="advantage">
     <div class="advantage__wrapper">
       <div class="advantage__section">
         <div class="advantage__decoration">
@@ -77,9 +77,9 @@
         ></advantage-card>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /. advantage -->
-  <div class="portfolio">
+  <section class="portfolio">
     <div class="container">
       <div class="portfolio__wrapper">
         <div class="portfolio__section">
@@ -92,9 +92,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /. portfolio -->
-  <div class="clients">
+  <section class="clients">
     <div class="container">
       <div class="clients__wrapper">
         <div class="clients__section_1">
@@ -133,9 +133,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /. clients -->
-  <div class="stage">
+  <section class="stage">
     <div class="container">
       <text-template v-bind:element="FourthTemplate"></text-template>
       <div class="stage__wrapper">
@@ -146,9 +146,9 @@
         ></stage-item>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /. stage -->
-  <div class="partners">
+  <section class="partners">
     <div class="container">
       <text-template v-bind:element="FifthTemplate"></text-template>
       <div class="partners__wrapper">
@@ -159,9 +159,9 @@
         ></partner-item>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /. partners -->
-  <div class="workers">
+  <section class="workers">
     <div class="container">
       <text-template v-bind:element="SixthTemplate"></text-template>
       <div class="workers__wrapper">
@@ -172,9 +172,9 @@
         ></worker-card>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /. workers -->
-  <div class="contacts">
+  <section class="contacts">
     <div class="container">
       <text-template v-bind:element="SeventhTemplate"></text-template>
       <div class="contacts__wrapper">
@@ -200,9 +200,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /. contacts -->
-  <div class="feedback">
+  <section class="feedback">
     <div class="container">
       <div class="feedback__wrapper">
         <div class="feedback__section_1">
@@ -233,9 +233,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /. feedback -->
-  <div class="data">
+  <section class="data">
     <div class="container">
       <text-template v-bind:element="NinthTemplate"></text-template>
       <div class="data__wrapper">
@@ -273,9 +273,9 @@
         <button class="data__button">Подтвердить информацию</button>
       </div>
     </div>
-  </div>
+  </section>
   <!-- /.data  -->
-  <div class="overview">
+  <section class="overview">
     <div class="container">
       <div class="overview__wrapper">
         <div class="overview__text">
@@ -302,7 +302,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -927,6 +927,9 @@ export default {
 .voting__section {
   display: flex;
 }
+.voting__form {
+  flex: 0 0 54%;
+}
 .voting__button {
   margin: 0 auto;
 }
@@ -1007,14 +1010,14 @@ export default {
 .clients__wrapper {
   display: flex;
   padding: 85px 0;
+  padding: 85px 60px 85px 60px;
   background-color: #0b7572;
 }
 .clients__section_1 {
-  width: 40%;
-  padding-left: 60px;
+  flex: 1 1 auto;
 }
 .clients__section_2 {
-  width: 60%;
+  flex: 0 0 51%;
   z-index: 2;
 }
 .clients__title {
@@ -1100,6 +1103,9 @@ export default {
   margin-top: 72px;
   display: flex;
   flex-wrap: wrap;
+  & > * {
+    margin: 0 30px 24px 0;
+  }
   :nth-child(2n) {
     margin-right: 0;
   }
@@ -1119,18 +1125,11 @@ export default {
   margin-top: 72px;
 }
 .contacts__section_1 {
-  max-width: 35%;
-  flex: 1;
+  flex: 1 1 auto;
   margin-right: 20px;
 }
 .contacts__section_2 {
-  max-width: 65%;
-  flex: 1;
-}
-.social {
-  :last-child {
-    margin-bottom: 0;
-  }
+  flex: 0 0 62%;
 }
 .requisites__list {
   background: #f9f9fb;
@@ -1150,10 +1149,10 @@ export default {
   position: relative;
 }
 .feedback__section_1 {
-  width: 60%;
   padding: 100px 56px;
   background-color: #0b7572;
   display: flex;
+  flex: 0 0 55%;
   flex-direction: column;
   justify-content: center;
   position: relative;
@@ -1229,6 +1228,9 @@ export default {
 }
 .gallary__images {
   display: flex;
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
 }
 .gallary__title {
   margin-bottom: 24px;
@@ -1270,20 +1272,20 @@ export default {
   width: 100%;
   height: 100%;
 }
-.overview__mask {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url(./assets/images/truck-overview.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 1;
-  position: absolute;
-  transition: 0.45s linear;
-  top: 0;
-}
-.overview__video:hover .overview__mask {
-  top: -100%;
-}
+// .overview__mask {
+//   width: 100%;
+//   height: 100%;
+//   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+//     url(./assets/images/truck-overview.png);
+//   background-position: center;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   z-index: 1;
+//   position: absolute;
+//   transition: 0.45s linear;
+//   top: 0;
+// }
+// .overview__video:hover .overview__mask {
+//   top: -100%;
+// }
 </style>
