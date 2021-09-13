@@ -7,7 +7,7 @@
     />
     <ul class="stage__text">
       <li class="stage__title title">
-        <a class="stage__link btn" href="#">{{ stage.title }}</a>
+        <a class="stage__link btn decoration" href="#">{{ stage.title }}</a>
       </li>
       <li class="stage__subtitle subtitle">
         <span class="stage__link">{{ stage.subtitle }}</span>
@@ -39,14 +39,15 @@ export default {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
   margin-bottom: 24px;
-  padding: 32px 96px;
+  padding: 32px 132px;
   &:last-child {
     margin-bottom: 0;
   }
 }
 .stage__image {
   margin-right: 56px;
-  width: 330px;
+  max-width: 330px;
+  width: 100%;
   min-height: 180px;
   object-fit: cover;
 }

@@ -6,7 +6,7 @@
         v-bind:type="input.type"
         v-bind="input.options"
       />
-      <span class="input__icon">
+      <span>
         <icon-template v-bind:form="input.inputImage"></icon-template>
       </span>
       <span class="input__title">{{ input.title }}</span>
@@ -18,19 +18,8 @@
 import IconTemplate from "@/components/IconTemplate";
 
 export default {
-  data() {
-    return {
-      taskFile: "",
-      taskIMG:"",
-    };
-  },
   // /. DATA
-  // methods: {
-  //   submitForm() {
-  //     alert("Form Submit!");
-  //     console.log(this.description);
-  //   },
-  // },
+  methods: {},
   // /.METHODS
   props: {
     input: {
@@ -57,12 +46,12 @@ export default {
   visibility: hidden;
   position: absolute;
 }
+.input__title {
+  margin-left: 16px;
+}
 .input__label {
   font-size: 16px;
   color: #fff;
   cursor: pointer;
-}
-.input__icon {
-  margin-right: 16px;
 }
 </style>

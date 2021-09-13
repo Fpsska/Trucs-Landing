@@ -18,7 +18,9 @@
           <a class="slider__link" href="#">{{ item.subtitle }}</a>
         </li>
         <li class="slider__price">
-          <a class="slider__link btn" href="#">{{ item.price }} руб</a>
+          <a class="slider__link btn decoration" href="#" color="decoration"
+            >{{ item.price }} руб</a
+          >
         </li>
       </ul>
     </div>

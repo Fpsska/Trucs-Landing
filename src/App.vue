@@ -6,7 +6,7 @@
           <div class="about__section_1">
             <div class="about__info">
               <text-template
-                styles="title-big"
+                styles="title-big title-white"
                 data-mark="1"
                 v-bind:element="FirstTemplate"
               ></text-template>
@@ -227,23 +227,14 @@
         <div class="feedback__section_1">
           <text-template
             v-bind:element="EightTemplate"
-            styles="title-big title_form"
+            v-bind:styles="'title-big'"
           ></text-template>
-          <form class="form" name="feedback" v-on:submit.prevent="submitForm">
+          <form class="form" name="feedback">
             <div class="form__wrapper">
-              <textarea
-                class="form__description"
-                placeholder="Опишите задачу"
-                v-model="taskDescription"
-              ></textarea>
-              <form-input
-                v-for="input in FormInputItems"
-                v-bind:key="input.id"
-                v-bind:input="input"
-              ></form-input>
-              <button class="form__button" type="submit">
-                Отправить заявку
-              </button>
+              <form-template
+                v-bind:inputs="FormInputItems"
+                v-on:submit="setFields"
+              ></form-template>
             </div>
           </form>
         </div>
@@ -265,33 +256,7 @@
         styles="title-big"
       ></text-template>
       <div class="data__wrapper">
-        <div class="data__section">
-          <h2 class="data__title title">Описание задачи</h2>
-          <p class="data__description subtitle">
-            {{ this.taskDescription }}
-          </p>
-        </div>
-        <div class="data__task task">
-          <h2 class="task__title title">Техническое задание</h2>
-          <div class="task__wrapper">
-            <task-template
-              v-for="task in TaskItems"
-              v-bind:key="task.id"
-              v-bind:task="task"
-            ></task-template>
-          </div>
-        </div>
-        <div class="data__gallery gallary">
-          <h2 class="gallary__title title">Фотографии товара</h2>
-          <div class="gallary__images">
-            <gallery-card
-              v-for="card in GalleryItems"
-              v-bind:key="card.id"
-              v-bind:card="card"
-            ></gallery-card>
-          </div>
-        </div>
-        <button class="data__button">Подтвердить информацию</button>
+        <feedback-data v-bind:fields="fields"></feedback-data>
       </div>
     </div>
   </section>
@@ -342,9 +307,8 @@ import WorkerCard from "@/components/WorkerCard";
 import SliderList from "@/components/SliderList";
 import SocialList from "@/components/SocialList";
 import RequisiteItem from "@/components/RequisiteItem";
-import InputFormTemplate from "@/components/InputFormTemplate";
-import GalleryCard from "@/components/GalleryCard";
-import TaskFileTemplate from "@/components/TaskFileTemplate";
+import FormTemplate from "@/components/FormTemplate";
+import FeedbackData from "@/components/FeedbackData";
 
 export default {
   name: "App",
@@ -361,13 +325,11 @@ export default {
     "slider-list": SliderList,
     "social-list": SocialList,
     "requisite-item": RequisiteItem,
-    "form-input": InputFormTemplate,
-    "gallery-card": GalleryCard,
-    "task-template": TaskFileTemplate,
+    "form-template": FormTemplate,
+    "feedback-data": FeedbackData,
   },
   data() {
     return {
-      taskDescription: "",
       TextTemplate: [
         {
           id: 1,
@@ -433,13 +395,13 @@ export default {
           text: "IMG00544.png",
         },
       ],
-      TaskItems: [
-        {
-          id: 1,
-          icon: "document",
-          title: "ТЗ_задачи.doc",
-        },
-      ],
+      // TaskItems: [
+      //   {
+      //     id: 1,
+      //     icon: "document",
+      //     title: "ТЗ_задачи.doc",
+      //   },
+      // ],
       ServicesItems: [
         {
           id: 1,
@@ -538,7 +500,6 @@ export default {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
           price: "22 000",
         },
-
         // {
         // firstSlide: {
         //   id: 1,
@@ -814,7 +775,7 @@ export default {
           inputImage: "add-file",
           options: {
             name: "fileUpload",
-            // required: true,
+            required: true,
             multiple: true,
           },
         },
@@ -826,17 +787,18 @@ export default {
           options: {
             name: "imageUpload",
             accept: "image/*",
-            // required: true,
+            required: true,
             multiple: false,
           },
         },
       ],
+      fields: {},
     };
   },
   methods: {
-    submitForm() {
+    setFields(value) {
       alert("Form Submit!");
-      // console.log("text:", this.taskDescription);
+      this.fields = { ...value };
     },
   },
   // /.METHODS
@@ -1189,6 +1151,9 @@ export default {
   position: relative;
   z-index: 1;
 }
+.feedback__section_1 .title-big {
+  color: #fff;
+}
 .feedback__section_2 {
   display: flex;
   position: absolute;
@@ -1214,26 +1179,7 @@ export default {
   font-weight: 600;
   margin-top: 65px;
 }
-.form__description {
-  color: #fff;
-  padding: 10px 10px 15px 10px;
-  margin-bottom: 15px;
-  min-height: 223px;
-  line-height: 45px;
-  background-image: linear-gradient(
-    transparent,
-    transparent 44px,
-    rgba(255, 255, 255, 0.2) 0
-  );
-  background-size: 100% 45px;
-  background-color: transparent;
-  resize: none;
-  outline: none;
-  border: none;
-}
-.form__description::placeholder {
-  color: #fff;
-}
+
 /* полоса прокрутки (скроллбар) */
 ::-webkit-scrollbar {
   width: 10px;
@@ -1278,24 +1224,8 @@ export default {
 .gallary__title {
   margin-bottom: 24px;
 }
-.task__wrapper {
-  display: flex;
-  align-items: center;
-}
-.task {
-  margin: 40px 0 36px 0;
-}
-.task__title {
-  margin-bottom: 16px;
-}
-.task__icon {
-  margin-right: 16px;
-}
-.task__description {
-  text-decoration: underline;
-}
-// /.data
 
+// /.data
 .overview {
   margin-bottom: 130px;
 }

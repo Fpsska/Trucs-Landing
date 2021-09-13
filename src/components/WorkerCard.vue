@@ -7,7 +7,7 @@
     />
     <div class="worker__content">
       <ul class="worker__text">
-        <li class="worker__title title">
+        <li class="worker__title title decoration">
           <a class="worker__link" href="#">{{ worker.title }}</a>
         </li>
         <li class="worker__subtitle subtitle btn">

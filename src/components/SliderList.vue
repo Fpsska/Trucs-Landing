@@ -71,9 +71,6 @@ export default {
       console.log(swiper);
     },
   },
-  // data() {
-  //   return console.log(this.items);
-  // },
 };
 </script>
 

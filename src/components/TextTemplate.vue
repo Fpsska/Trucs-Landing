@@ -15,7 +15,9 @@ export default {
       type: String,
       default: "",
       validator(value) {
-        return ["", "title-big", "title-num", "title_form"].includes(value);
+        return ["", "title-big", "title-num", "title-form"].includes(
+          value
+        );
       },
     },
   },
@@ -38,7 +40,7 @@ export default {
   letter-spacing: 30%;
   font-size: 54px;
 }
-.title_form {
-  color: #fff !important;
+.title-white {
+  color: #fff;
 }
 </style>

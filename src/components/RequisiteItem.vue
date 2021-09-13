@@ -29,7 +29,11 @@ export default {
   margin-bottom: 32px;
 }
 .requisites__title {
-  margin-right: 115px;
+  margin-right: 30px;
+  flex: 0 1 27%;
   flex-shrink: 0;
+}
+.requisites__text {
+  flex: 1 1 auto;
 }
 </style>
