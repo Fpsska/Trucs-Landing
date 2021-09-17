@@ -1,9 +1,5 @@
 <template>
-  <textarea
-    class="form__description"
-    placeholder="Опишите задачу"
-    v-model="fields.description"
-  ></textarea>
+  <textarea class="form__description" placeholder="Опишите задачу"></textarea>
   <!-- /.field 1 -->
   <div class="form__input input">
     <label class="input__label">
@@ -44,9 +40,7 @@
     </div>
   </div>
   <!-- /.field 3 -->
-  <button class="form__button" v-on:click.prevent="sumbitForm">
-    Отправить заявку
-  </button>
+  <button class="form__button">Отправить заявку</button>
 </template>
 
 <script>
@@ -59,20 +53,21 @@ export default {
     "icon-template": IconTemplate,
   },
   data() {
-    let input = document.querySelector(".input__element");
-
-    console.log(input);
     return {
-      fields: { description: "", file: "", image: "" },
+      fields: {
+        description: "",
+        file: "",
+        image: "",
+      },
     };
   },
   methods: {
-    sumbitForm() {
-      this.$emit("submit", this.fields);
-      Object.keys(this.fields).forEach((key) => {
-        this.fields[key] = "";
-      });
-    },
+    // sumbitForm() {
+    //   this.$emit("submit", this.fields);
+    //   Object.keys(this.fields).forEach((key) => {
+    //     this.fields[key] = "";
+    //   });
+    // },
   },
   props: {
     inputs: {
@@ -114,7 +109,7 @@ export default {
 
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 }
 .input__element {
@@ -131,6 +126,9 @@ export default {
   cursor: pointer;
 }
 // ./input
+.preview {
+  margin-top: 20px;
+}
 .preview__text {
   margin-right: 5px;
   color: #fff;

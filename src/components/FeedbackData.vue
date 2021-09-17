@@ -1,7 +1,7 @@
 <template>
   <div class="data__section">
     <h2 class="data__title title">Описание задачи</h2>
-    <p class="data__description subtitle">{{ fields.description }}</p>
+    <p class="data__description subtitle">{{  }}</p>
   </div>
   <!-- /.field 1 -->
   <div class="data__task task">
@@ -35,9 +35,9 @@ export default {
     // cards: {
     //   type: Array,
     // },
-    fields: {
-      type: Object,
-    },
+    // fields: {
+    //   type: Object,
+    // },
   },
   components: {
     // "icon-template": IconTemplate,
