@@ -24,7 +24,7 @@
         <div class="services">
           <div class="services__wrapper">
             <service-card
-              v-for="card in $store.state.ServicesItems"
+              v-for="card in serviceCards"
               v-bind:key="card.id"
               v-bind:card="card"
             ></service-card>
@@ -46,7 +46,7 @@
         <div class="voting__section">
           <div class="voting__form">
             <voting-card
-              v-for="vote in $store.state.VotingItems"
+              v-for="vote in votingCards"
               v-bind:key="vote.id"
               v-bind:vote="vote"
             ></voting-card>
@@ -75,7 +75,7 @@
     <div class="container">
       <div class="advantage__elements">
         <advantage-card
-          v-for="skill in $store.state.AdvantageItems"
+          v-for="skill in advantageCards"
           v-bind:key="skill.id"
           v-bind:skill="skill"
         ></advantage-card>
@@ -94,7 +94,7 @@
         </div>
         <div class="portfolio__section">
           <div class="portfolio__slider slider">
-            <slider-list v-bind:items="$store.state.SliderItems"></slider-list>
+            <slider-list v-bind:items="sliderCards"></slider-list>
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@
               </thead>
               <tbody class="table__body">
                 <table-item
-                  v-for="table in $store.state.TableItems"
+                  v-for="table in tableTemplates"
                   v-bind:key="table.id"
                   v-bind:table="table"
                 ></table-item>
@@ -150,7 +150,7 @@
       ></text-template>
       <div class="stage__wrapper">
         <stage-item
-          v-for="stage in $store.state.StageItems"
+          v-for="stage in stageCards"
           v-bind:key="stage.id"
           v-bind:stage="stage"
         ></stage-item>
@@ -166,7 +166,7 @@
       ></text-template>
       <div class="partners__wrapper">
         <partner-item
-          v-for="partner in $store.state.PartnerItems"
+          v-for="partner in partnerCards"
           v-bind:key="partner.id"
           v-bind:partner="partner"
         ></partner-item>
@@ -182,7 +182,7 @@
       ></text-template>
       <div class="workers__wrapper">
         <worker-card
-          v-for="worker in $store.state.WorkerItems"
+          v-for="worker in workerCards"
           v-bind:key="worker.id"
           v-bind:worker="worker"
         ></worker-card>
@@ -200,7 +200,7 @@
         <div class="contacts__section_1">
           <div class="contacts__social social">
             <social-list
-              v-for="social in $store.state.SocialItems"
+              v-for="social in socialTemplates"
               v-bind:key="social.id"
               v-bind:social="social"
             ></social-list>
@@ -210,7 +210,7 @@
           <div class="requisites__wrapper">
             <ul class="requisites__list">
               <requisite-item
-                v-for="requisites in $store.state.RequisiteItems"
+                v-for="requisites in requisiteTemplates"
                 v-bind:key="requisites.id"
                 v-bind:requisites="requisites"
               ></requisite-item>
@@ -231,7 +231,7 @@
           ></text-template>
           <form class="form" name="feedback">
             <div class="form__wrapper">
-              <form-template v-bind:inputs="$store.state.FormInputItems"></form-template>
+              <form-template v-bind:inputs="inputTemplates"></form-template>
             </div>
           </form>
         </div>
@@ -247,7 +247,7 @@
   </section>
   <!-- /. feedback -->
   <section class="data">
-    <div class="container">$store.state.
+    <div class="container">
       <text-template
         v-bind:element="NinthTemplate"
         styles="title-big"
@@ -307,6 +307,8 @@ import RequisiteItem from "@/components/RequisiteItem";
 import FormTemplate from "@/components/FormTemplate";
 import FeedbackData from "@/components/FeedbackData";
 
+import { mapState } from "vuex";
+
 export default {
   name: "App",
   components: {
@@ -328,54 +330,54 @@ export default {
 
   data() {
     return {
-            TextTemplate: [
-                {
-                    id: 1,
-                    title: "Поставщик Дальнего Востока",
-                    subtitle:
-                        "Наши клиенты получают полный спектр услуг по работе с Китаем. Начиная с подбора производителя заканчивая доставкой товара до двери. Настолько прозрачных сделок с Китаем вы еще не осуществляли.",
-                },
-                {
-                    id: 2,
-                    title: "В какой сфере вы работаете?",
-                    subtitle:
-                        "Мы проводим опрос среди пользователей сайта, чтобы предоставить Вам информацию соответствующую сфере Вашей деятельности.",
-                },
-                {
-                    id: 3,
-                    title: "Выполненные работы",
-                    subtitle:
-                        "Мы собрали информацию по грузам, которые мы уже доставили.У нас специальный подход к каждому виду товаров.",
-                },
-                {
-                    id: 4,
-                    title: "Этапы поставки",
-                },
-                {
-                    id: 5,
-                    title: "Нам доверяют",
-                },
-                {
-                    id: 6,
-                    title: "Сотрудники компании",
-                },
-                {
-                    id: 7,
-                    title: "Наши контакты",
-                },
-                {
-                    id: 8,
-                    title: "Свяжитесь с нами",
-                },
-                {
-                    id: 9,
-                    title: "Ваши данные",
-                },
-                {
-                    id: 10,
-                    title: "Видео о нашей работе",
-                },
-            ],
+      TextTemplate: [
+        {
+          id: 1,
+          title: "Поставщик Дальнего Востока",
+          subtitle:
+            "Наши клиенты получают полный спектр услуг по работе с Китаем. Начиная с подбора производителя заканчивая доставкой товара до двери. Настолько прозрачных сделок с Китаем вы еще не осуществляли.",
+        },
+        {
+          id: 2,
+          title: "В какой сфере вы работаете?",
+          subtitle:
+            "Мы проводим опрос среди пользователей сайта, чтобы предоставить Вам информацию соответствующую сфере Вашей деятельности.",
+        },
+        {
+          id: 3,
+          title: "Выполненные работы",
+          subtitle:
+            "Мы собрали информацию по грузам, которые мы уже доставили.У нас специальный подход к каждому виду товаров.",
+        },
+        {
+          id: 4,
+          title: "Этапы поставки",
+        },
+        {
+          id: 5,
+          title: "Нам доверяют",
+        },
+        {
+          id: 6,
+          title: "Сотрудники компании",
+        },
+        {
+          id: 7,
+          title: "Наши контакты",
+        },
+        {
+          id: 8,
+          title: "Свяжитесь с нами",
+        },
+        {
+          id: 9,
+          title: "Ваши данные",
+        },
+        {
+          id: 10,
+          title: "Видео о нашей работе",
+        },
+      ],
       ButtonTemplate: [
         {
           id: 1,
@@ -389,11 +391,24 @@ export default {
     };
   },
   // /.DATA
-
   methods: {},
   // /.METHODS
-
   computed: {
+    ...mapState({
+      serviceCards: "ServicesItems",
+      votingCards: "VotingItems",
+      advantageCards: "AdvantageItems",
+      sliderCards: "SliderItems",
+      tableTemplates: "TableItems",
+      stageCards: "StageItems",
+      partnerCards: "PartnerItems",
+      workerCards: "WorkerItems",
+      socialTemplates: "SocialItems",
+      requisiteTemplates: "RequisiteItems",
+      inputTemplates: "FormInputItems",
+      // galleryCards: "GalleryItems",
+    }),
+    // /. state
     FirstTemplate() {
       return this.TextTemplate.find((item) => item.id == 1);
     },
