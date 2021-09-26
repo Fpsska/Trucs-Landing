@@ -1,4 +1,8 @@
 # vue-landing
+```
+GH-PAGES:
+```
+- [vue-landing](https://fpsska.github.io/vue-landing/)
 
 ## Project setup
 ```
