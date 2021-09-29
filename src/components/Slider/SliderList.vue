@@ -116,8 +116,8 @@ export default {
   padding-bottom: 100px;
 }
 .swiper-pagination-bullets {
-  :nth-child(2) {
-    margin: 0 10px !important;
+  :not(:last-child){
+    margin: 0 6px !important;
   }
 }
 .swiper-pagination-bullet {
