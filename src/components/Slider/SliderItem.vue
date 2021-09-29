@@ -41,20 +41,33 @@ export default {
 .subtitle {
   margin: 16px 0 32px 0;
 }
+.slider__subtitle{
+  flex: 1;
+}
 .slider__card {
-  flex: 0 1 33.333%;
   background: #ffffff;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
   margin-right: 30px;
+
+  display: flex;
+  flex-direction: column;
 }
 .slider__section_top {
   min-height: 245px;
 }
+.slider__section_btm {
+  flex: 1;
+}
 .slider__description {
   text-align: start;
   padding: 24px 32px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
 }
+
 .slider__image {
   object-fit: cover;
   width: 100%;

@@ -1,6 +1,16 @@
 import { createStore } from "vuex";
 
 export default createStore({
+    // actions: {
+    //     getInputValue(ctx) {
+
+    //     }
+    // },
+    // mutations: {
+    //     inputHandler(state) {
+
+    //     }
+    // },
     state() {
         return {
             ServicesItems: [
@@ -90,7 +100,7 @@ export default createStore({
                     image: "portfolio-2.png",
                     title: "Компоненты и запчасти",
                     subtitle:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
                     price: "18 000",
                 },
                 {
@@ -101,32 +111,6 @@ export default createStore({
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
                     price: "22 000",
                 },
-                // {
-                // firstSlide: {
-                //   id: 1,
-                //   image: "portfolio-1.png",
-                //   title: "Станки и оборудование",
-                //   subtitle:
-                //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
-                //   price: "20 000",
-                // },
-                // secondSlide: {
-                //   id: 2,
-                //   image: "portfolio-2.png",
-                //   title: "Компоненты и запчасти",
-                //   subtitle:
-                //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
-                //   price: "18 000",
-                // },
-                // thirdSlide: {
-                //   id: 3,
-                //   image: "portfolio-3.png",
-                //   title: "Квартирные переезды",
-                //   subtitle:
-                //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut.",
-                //   price: "22 000",
-                // },
-                // }
             ],
             TableItems: [
                 {

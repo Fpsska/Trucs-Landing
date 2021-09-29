@@ -6,8 +6,7 @@
           <div class="about__section_1">
             <div class="about__info">
               <text-template
-                styles="title-big title-white"
-                data-mark="1"
+                v-bind:styles="'title-big title-white'"
                 v-bind:element="FirstTemplate"
               ></text-template>
               <button-template
@@ -253,7 +252,7 @@
         styles="title-big"
       ></text-template>
       <div class="data__wrapper">
-        <feedback-data v-bind:fields="fields"></feedback-data>
+        <feedback-data></feedback-data>
       </div>
     </div>
   </section>
@@ -294,19 +293,18 @@
 <script>
 import ServiceCard from "@/components/ServiceCard";
 import VotingCard from "@/components/VotingCard";
-import TextTemplate from "@/components/TextTemplate";
-import ButtonTemplate from "@/components/ButtonTemplate";
 import AdvantageCard from "@/components/AdvantageCard";
+import WorkerCard from "@/components/WorkerCard";
+import TextTemplate from "@/components/TextTemplate";
+import FormTemplate from "@/components/FormTemplate";
+import ButtonTemplate from "@/components/ButtonTemplate";
+import SliderList from "@/components/Slider/SliderList";
+import SocialList from "@/components/SocialList";
 import TableItem from "@/components/TableItem";
 import StageItem from "@/components/StageItem";
 import PartnerItem from "@/components/PartnerItem";
-import WorkerCard from "@/components/WorkerCard";
-import SliderList from "@/components/SliderList";
-import SocialList from "@/components/SocialList";
 import RequisiteItem from "@/components/RequisiteItem";
-import FormTemplate from "@/components/FormTemplate";
 import FeedbackData from "@/components/FeedbackData";
-
 import { mapState } from "vuex";
 
 export default {

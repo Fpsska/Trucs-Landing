@@ -15,7 +15,7 @@ export default {
       type: String,
       default: "",
       validator(value) {
-        return ["", "title-big", "title-num", "title-form"].includes(
+        return ["", "title-big", "title-num", "title-form", "title-white"].includes(
           value
         );
       },

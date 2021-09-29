@@ -2,41 +2,61 @@
   <swiper
     @slideChange="onSlideChange"
     :pagination="{ clickable: true }"
-    :breakpoints="{
-      '360': {
-        slidesPerView: 1,
-      },
-      '768': {
-        slidesPerView: 4,
-      },
-      '1024': {
-        slidesPerView: 1,
-      },
-    }"
+    :breakpoints="breakpoints"
+    :spaceBetween="30"
   >
     <swiper-slide>
       <slider-item
-        v-for="item in items"
+        v-for="item in items.slice(0, 1)"
         v-bind:key="item.id"
         v-bind:item="item"
       ></slider-item>
     </swiper-slide>
+    <!-- /.slide 1 -->
     <swiper-slide>
       <slider-item
-        v-for="item in items"
+        v-for="item in items.slice(1, 2)"
         v-bind:key="item.id"
         v-bind:item="item"
       ></slider-item>
     </swiper-slide>
+    <!-- /.slide 2 -->
     <swiper-slide>
       <slider-item
-        v-for="item in items"
+        v-for="item in items.slice(2, 3)"
         v-bind:key="item.id"
         v-bind:item="item"
       ></slider-item>
     </swiper-slide>
+    <!-- /.slide 3 -->
+    <swiper-slide>
+      <slider-item
+        v-for="item in items.slice(0, 1)"
+        v-bind:key="item.id"
+        v-bind:item="item"
+      ></slider-item>
+    </swiper-slide>
+    <!-- /.slide 4 -->
+    <swiper-slide>
+      <slider-item
+        v-for="item in items.slice(1, 2)"
+        v-bind:key="item.id"
+        v-bind:item="item"
+      ></slider-item>
+    </swiper-slide>
+    <!-- /.slide 5 -->
+    <swiper-slide>
+      <slider-item
+        v-for="item in items.slice(2, 3)"
+        v-bind:key="item.id"
+        v-bind:item="item"
+      ></slider-item>
+    </swiper-slide>
+    <!-- /.slide 6 -->
   </swiper>
 </template>
+
+
 
 <script>
 // import Swiper core and required modules
@@ -45,7 +65,7 @@ import SwiperCore, { Pagination, A11y } from "swiper";
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-import SliderItem from "@/components/SliderItem";
+import SliderItem from "@/components/Slider/SliderItem";
 
 // Import Swiper styles
 import "swiper/swiper.scss";
@@ -56,6 +76,18 @@ SwiperCore.use([Pagination, A11y]);
 
 // Import Swiper styles
 export default {
+  data() {
+    return {
+      breakpoints: {
+        480: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+      },
+    };
+  },
   components: {
     swiper: Swiper,
     "swiper-slide": SwiperSlide,
@@ -78,6 +110,7 @@ export default {
 <style lang="scss">
 .swiper-slide {
   display: flex;
+  height: auto;
 }
 .swiper-container {
   padding-bottom: 100px;
