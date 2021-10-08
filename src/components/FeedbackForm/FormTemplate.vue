@@ -56,9 +56,8 @@ export default {
       ) {
         alert("Заполните хотя бы одно поле ввода!");
       } else {
-        this.$store.commit("formVisibleMutatiaon");
+        this.$store.commit("formVisibleMutatiaon", true);
       }
-      
     },
   },
   // /.METHODS

@@ -27,12 +27,17 @@
         ></gallery-card>
       </div>
       <!-- /.field 3 -->
-      <button class="data__button" @click.prevent="ValidateForm">
+      <button class="data__button" @click.prevent="SubmitForm">
         Подтвердить информацию
       </button>
     </div>
   </div>
-  <h2 v-else class="data__text">Здесь могла бы быть ваша информация! Заполните форму выше ;)</h2>
+    <h3 v-else-if="isFormSubmted" class="data__text">
+    Спасибо! Ваши данные были приняты на обработку.
+  </h3>
+  <h2 v-else class="data__text">
+    Здесь могла бы быть ваша информация! Заполните форму выше ;)
+  </h2>
 </template>
 
 <script>
@@ -45,8 +50,10 @@ export default {
   },
   // /.COMPONENTS
   methods: {
-    ValidateForm() {
-      alert("Данные были успешно отправлены на сервер!");
+    SubmitForm() {
+      this.$store.commit("formSubmitMutatiaon");
+      this.$store.commit("formVisibleMutatiaon", false);
+
     },
   },
   // /.METHODS
@@ -54,7 +61,8 @@ export default {
     ...mapState({
       galleryCards: "GalleryItems",
       FormTemplate: "FormTemplate",
-      isFormVisible: "isFormVisible"
+      isFormVisible: "isFormVisible",
+      isFormSubmted: "isFormSubmted",
     }),
   },
   // /.COMPUTED

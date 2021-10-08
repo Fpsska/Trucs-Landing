@@ -33,14 +33,18 @@ export default createStore({
             const fileName = file.name.trim()
             state.FormTemplate.filename = fileName
         },
-        formVisibleMutatiaon(state) {
-            state.isFormVisible = true
+        formVisibleMutatiaon(state, boolean) {
+            state.isFormVisible = boolean
+        },
+        formSubmitMutatiaon(state) {
+            state.isFormSubmted = true
         }
     },
     // /. MUTATIONS
     state() {
         return {
             isFormVisible: false,
+            isFormSubmted: false,
             FormTemplate: {
                 text: "",
                 filename: "",
