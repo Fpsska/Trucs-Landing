@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/vue-lannding/'
+    publicPath: "/vue-landing/"
 }

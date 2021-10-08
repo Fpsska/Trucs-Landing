@@ -172,6 +172,8 @@
     </g>
   </svg>
   <!-- /.svg 9 -->
+
+
   <svg
     class="task__icon"
     v-else-if="task === 'document'"
@@ -185,7 +187,11 @@
       />
     </g>
   </svg>
+
+  
   <!-- /.svg 10 -->
+
+
 </template>
 
 <script>
@@ -215,8 +221,8 @@ export default {
   width: 20px;
   height: 19px;
 }
-.task__icon {
-  width: 15px;
-  height: 20px;
-}
+// .task__icon {
+//   width: 15px;
+//   height: 20px;
+// }
 </style>

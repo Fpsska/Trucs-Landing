@@ -230,7 +230,7 @@
           ></text-template>
           <form class="form" name="feedback">
             <div class="form__wrapper">
-              <form-template v-bind:inputs="inputTemplates"></form-template>
+              <form-template></form-template>
             </div>
           </form>
         </div>
@@ -296,7 +296,7 @@ import VotingCard from "@/components/VotingCard";
 import AdvantageCard from "@/components/AdvantageCard";
 import WorkerCard from "@/components/WorkerCard";
 import TextTemplate from "@/components/TextTemplate";
-import FormTemplate from "@/components/FormTemplate";
+import FormTemplate from "@/components/FeedbackForm/FormTemplate";
 import ButtonTemplate from "@/components/ButtonTemplate";
 import SliderList from "@/components/Slider/SliderList";
 import SocialList from "@/components/SocialList";
@@ -389,7 +389,8 @@ export default {
     };
   },
   // /.DATA
-  methods: {},
+  methods: {
+  },
   // /.METHODS
   computed: {
     ...mapState({
@@ -403,8 +404,6 @@ export default {
       workerCards: "WorkerItems",
       socialTemplates: "SocialItems",
       requisiteTemplates: "RequisiteItems",
-      inputTemplates: "FormInputItems",
-      // galleryCards: "GalleryItems",
     }),
     // /. state
     FirstTemplate() {
@@ -815,9 +814,6 @@ export default {
   background: #0b7572;
   border-radius: 4px;
   padding: 20px;
-}
-.gallary {
-  margin-bottom: 80px;
 }
 .gallary__images {
   display: flex;

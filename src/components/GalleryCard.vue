@@ -1,21 +1,26 @@
 <template>
   <div class="gallary__card">
-    <img
-      class="gallary__image"
-      v-bind:src="require(`@/assets/images/${card.image}`)"
-      alt="image"
-    />
-    <a class="gallary__description" href="#">{{ card.text }}</a>
+    <img class="gallary__image" v-bind:src="FormTemplate.imageurl"/>
+    <a class="gallary__description" href="#">{{ FormTemplate.imagename }}</a>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   props: {
     card: {
       type: Object,
     },
   },
+  // /. PROPS
+  computed: {
+    ...mapState({
+      FormTemplate: "FormTemplate",
+    }),
+  },
+   // /. COMPUTED
 };
 </script>
 
@@ -23,7 +28,7 @@ export default {
 .gallary__card {
   display: flex;
   flex-direction: column;
-  margin-right: 16px;
+  margin: 0 16px 16px 0;
 }
 .gallary__description {
   text-decoration: underline;
@@ -32,6 +37,6 @@ export default {
   object-fit: cover;
   width: 175px;
   height: 135px;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
 }
 </style>

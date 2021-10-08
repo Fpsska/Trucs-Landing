@@ -1,18 +1,52 @@
 import { createStore } from "vuex";
 
 export default createStore({
-    // actions: {
-    //     getInputValue(ctx) {
-
-    //     }
-    // },
-    // mutations: {
-    //     inputHandler(state) {
-
-    //     }
-    // },
+    actions: {
+        FormHandler(context, payload) {
+            switch (payload.name) {
+                case "TEXT-TASK":
+                    context.commit("textAreaMutation", payload.value)
+                    break
+                case "FILE-DOC":
+                    context.commit("inputFileMutation", payload.file)
+                    break
+                case "FILE-IMAGE":
+                    context.commit("inputImageMutation", payload.file)
+                    break
+            }
+        },
+    },
+    mutations: {
+        textAreaMutation(state, value) {
+            state.FormTemplate.text = value
+        },
+        inputImageMutation(state, image) {
+            const fileReader = new FileReader();
+            const imageName = image.name.trim()
+            state.FormTemplate.imagename = imageName
+            fileReader.readAsDataURL(image)
+            fileReader.onload = () => {
+                state.FormTemplate.imageurl = fileReader.result
+            }
+        },
+        inputFileMutation(state, file) {
+            const fileName = file.name.trim()
+            state.FormTemplate.filename = fileName
+        },
+        formVisibleMutatiaon(state) {
+            state.isFormVisible = true
+        }
+    },
+    // /. MUTATIONS
     state() {
         return {
+            isFormVisible: false,
+            FormTemplate: {
+                text: "",
+                filename: "",
+                imagename: "",
+                imageurl: ""
+            },
             ServicesItems: [
                 {
                     id: 1,
@@ -345,24 +379,31 @@ export default createStore({
             FormInputItems: [
                 {
                     id: 1,
-                    type: "file",
-                    title: "Прикрепите ТЗ",
-                    inputImage: "add-file",
-                    options: {
-                        name: "fileUpload",
-                        required: true,
-                        multiple: true,
-                    },
+                    placeholder: "Опишите задачу",
+                    name: "TEXT-TASK",
+                    disabled: false
                 },
                 {
                     id: 2,
-                    type: "file",
+                    title: "Прикрепите ТЗ",
+                    inputImage: "add-file",
+                    accept: ".doc,.docx,.txt,.xlsx,.xls,.pdf",
+                    options: {
+                        type: "file",
+                        name: "FILE-DOC",
+                        required: false,
+                        multiple: false,
+                    },
+                },
+                {
+                    id: 3,
                     title: "Добавьте фото товара",
                     inputImage: "add-image",
+                    accept: "image/*",
                     options: {
-                        name: "imageUpload",
-                        accept: "image/*",
-                        required: true,
+                        type: "file",
+                        name: "FILE-IMAGE",
+                        required: false,
                         multiple: false,
                     },
                 },
@@ -370,20 +411,11 @@ export default createStore({
             GalleryItems: [
                 {
                     id: 1,
-                    image: "good-1.png",
-                    text: "IMG12344.png",
-                },
-                {
-                    id: 2,
-                    image: "good-2.png",
-                    text: "IMG00344.png",
-                },
-                {
-                    id: 3,
-                    image: "good-3.png",
-                    text: "IMG00544.png",
+                    // image: "good-1.png",
+                    // text: "IMG12344.png",
                 },
             ],
         }
     },
+    // /. STATE
 });
