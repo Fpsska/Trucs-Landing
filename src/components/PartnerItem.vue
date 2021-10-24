@@ -56,6 +56,7 @@ export default {
   flex: 1 1 100%;
 }
 .partners__item {
+  text-align: center;
   &:nth-child(1) {
     min-height: 96px;
   }

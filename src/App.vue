@@ -9,7 +9,8 @@
                 v-bind:styles="'title-big title-white'"
                 v-bind:element="FirstTemplate"
               ></text-template>
-              <button-template
+              <button-template class="decoration"
+                color="white"
                 v-bind:button="ButtonFirstTemplate"
               ></button-template>
             </div>
@@ -705,10 +706,6 @@ export default {
   :nth-child(2n) {
     margin-right: 0;
   }
-  :nth-last-child(-n + 2),
-  :last-child {
-    margin-bottom: 0;
-  }
 }
 // /.workers
 .contacts {
@@ -783,14 +780,14 @@ export default {
   margin-top: 65px;
 }
 
-/* полоса прокрутки (скроллбар) */
+/* scroll line */
 ::-webkit-scrollbar {
   width: 10px;
   height: 12px;
   border-radius: 5px;
   background-color: #ccc;
 }
-/* ползунок скроллбара */
+/* scrollbar slider */
 ::-webkit-scrollbar-thumb {
   background-color: rgba(11, 117, 114, 0.788);
   border-radius: 5px;
@@ -845,20 +842,4 @@ export default {
   width: 100%;
   height: 100%;
 }
-// .overview__mask {
-//   width: 100%;
-//   height: 100%;
-//   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-//     url(./assets/images/truck-overview.png);
-//   background-position: center;
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   z-index: 1;
-//   position: absolute;
-//   transition: 0.45s linear;
-//   top: 0;
-// }
-// .overview__video:hover .overview__mask {
-//   top: -100%;
-// }
 </style>

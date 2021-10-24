@@ -1,7 +1,6 @@
 <template>
   <swiper
-    @slideChange="onSlideChange"
-    :pagination="{ clickable: true }"
+    :pagination="true"
     :breakpoints="breakpoints"
     :spaceBetween="30"
   >
@@ -60,7 +59,7 @@
 
 <script>
 // import Swiper core and required modules
-import SwiperCore, { Pagination, A11y } from "swiper";
+import SwiperCore, { Pagination } from "swiper";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -72,7 +71,7 @@ import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
 
 // install Swiper modules
-SwiperCore.use([Pagination, A11y]);
+SwiperCore.use([Pagination]);
 
 // Import Swiper styles
 export default {
@@ -98,11 +97,6 @@ export default {
       type: Array,
     },
   },
-  methods: {
-    onSlideChange(swiper) {
-      console.log(swiper);
-    },
-  },
 };
 </script>
 
@@ -116,7 +110,7 @@ export default {
   padding-bottom: 100px;
 }
 .swiper-pagination-bullets {
-  :not(:last-child){
+  :not(:last-child) {
     margin: 0 6px !important;
   }
 }

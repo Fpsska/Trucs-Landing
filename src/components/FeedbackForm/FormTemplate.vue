@@ -50,11 +50,11 @@ export default {
   methods: {
     submitForm() {
       if (
-        this.FormTemplate.text === "" &&
-        this.FormTemplate.filename === "" &&
+        this.FormTemplate.text === "" ||
+        this.FormTemplate.filename === "" ||
         this.FormTemplate.imagename === ""
       ) {
-        alert("Заполните хотя бы одно поле ввода!");
+        alert("Все поля обязательные к заполнению!");
       } else {
         this.$store.commit("formVisibleMutatiaon", true);
       }

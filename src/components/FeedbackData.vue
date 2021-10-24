@@ -32,9 +32,11 @@
       </button>
     </div>
   </div>
-    <h3 v-else-if="isFormSubmted" class="data__text">
+
+  <h3 v-else-if="isFormSubmted" class="data__text">
     Спасибо! Ваши данные были приняты на обработку.
   </h3>
+
   <h2 v-else class="data__text">
     Здесь могла бы быть ваша информация! Заполните форму выше ;)
   </h2>
@@ -53,7 +55,6 @@ export default {
     SubmitForm() {
       this.$store.commit("formSubmitMutatiaon");
       this.$store.commit("formVisibleMutatiaon", false);
-
     },
   },
   // /.METHODS

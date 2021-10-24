@@ -99,6 +99,9 @@
 }
 
 @media (max-width: 860px) {
+    .white.white {
+        color: #fff;
+    }
     .title-white.title-white {
         color: #fff;
     }
@@ -150,9 +153,6 @@
         :nth-child(6) {
             margin-bottom: 95px;
         }
-    }
-    .partners__item {
-        text-align: center;
     }
     .partners__card.partners__card {
         flex: 0 1 50%;

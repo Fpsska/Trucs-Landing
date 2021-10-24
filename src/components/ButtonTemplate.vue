@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss">
-.btn {
+.btn.btn {
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
