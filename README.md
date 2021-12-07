@@ -2,7 +2,7 @@
 ```
 GH-PAGES:
 ```
-- [vue-landing](https://fpsska.github.io/vue-landing/)
+- [vue-landing](https://fpsska.github.io/Trucs-Landing/)
 
 ## Project setup
 ```
